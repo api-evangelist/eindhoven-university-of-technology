@@ -1,0 +1,47 @@
+---
+name: Eindhoven University of Technology
+description: Eindhoven University of Technology public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/eindhoven-university-of-technology/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 2
+    summary: >-
+      TU/e (QS World 2025 #136) has a modest, mostly vendor-mediated public API
+      footprint. Confirmed live: the official website and the Elsevier Pure
+      Research Portal (research.tue.nl, 200). The Pure OAI-PMH endpoint
+      (pure.tue.nl/ws/oai) and Pure Web Service path resolve but returned 500/999
+      errors to bare unauthenticated probes, consistent with Pure requiring
+      well-formed OAI verbs or API-key authentication rather than being broken.
+      No single consolidated public developer portal was found; course/identity/
+      library access is institution-internal or vendor-gated. Many departmental
+      GitHub orgs exist (tue-robotics, TUE-EE-ES, tueimage, etc.) but no single
+      official org. No endpoints were fabricated; gated/erroring endpoints are
+      noted honestly.
+    endpoints:
+      - url: https://www.tue.nl/en/
+        status: 200
+        note: Official institutional website, live.
+      - url: https://research.tue.nl/
+        status: 200
+        note: Elsevier Pure Research Portal, live ("Powered by Pure").
+      - url: https://pure.tue.nl/ws/oai?verb=Identify
+        status: 500
+        note: Pure OAI-PMH path resolves; bare request errors, expects valid OAI params.
+      - url: https://research.tue.nl/ws/oai?verb=ListMetadataFormats
+        status: 500
+        note: Returns JSON error 999; OAI service gated/requires proper request.
+      - url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
+        status: 200
+        note: TU/e Pure FAQ documenting OAI/Pure Web Service usage.
+      - url: https://research.tue.nl/ws/api/524/openapi.yaml
+        status: 404
+        note: No public Pure Web Service OpenAPI spec exposed.
+      - url: https://www.linkedin.com/school/eindhoven-university-of-technology/
+        status: 200
+        note: Official LinkedIn school page.
+      - url: https://github.com/TUEIndhoven
+        status: 200
+        note: A TU/e-related GitHub org; no single official university-wide org.
+---
