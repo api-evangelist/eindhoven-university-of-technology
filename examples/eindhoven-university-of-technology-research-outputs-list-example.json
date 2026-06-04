@@ -1,0 +1,56 @@
+{
+  "count": 1,
+  "pageInformation": {
+    "offset": 0,
+    "size": 20
+  },
+  "items": [
+    {
+      "pureId": 312456,
+      "uuid": "a1b2c3d4-0000-4eee-9aaa-112233445566",
+      "title": {
+        "value": "Energy-efficient deep learning on edge devices"
+      },
+      "type": {
+        "uri": "/dk/atira/pure/researchoutput/researchoutputtypes/contributiontojournal/article",
+        "term": {
+          "en_GB": "Article"
+        }
+      },
+      "category": {
+        "uri": "/dk/atira/pure/researchoutput/category/academic",
+        "term": {
+          "en_GB": "Academic"
+        }
+      },
+      "peerReview": true,
+      "publicationStatuses": [
+        {
+          "current": true,
+          "publicationDate": {
+            "year": 2025,
+            "month": 3
+          },
+          "publicationStatus": {
+            "term": {
+              "en_GB": "Published"
+            }
+          }
+        }
+      ],
+      "language": {
+        "uri": "/dk/atira/pure/core/languages/en",
+        "term": {
+          "en_GB": "English"
+        }
+      },
+      "managingOrganization": {
+        "uuid": "org-1111",
+        "name": {
+          "en_GB": "Department of Mathematics and Computer Science"
+        }
+      },
+      "portalUrl": "https://research.tue.nl/en/publications/energy-efficient-deep-learning-on-edge-devices"
+    }
+  ]
+}

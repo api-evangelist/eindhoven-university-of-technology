@@ -1,0 +1,50 @@
+extends: []
+formats:
+  - oas3
+documentationUrl: https://github.com/api-evangelist/eindhoven-university-of-technology
+rules:
+  tue-pure-info-title:
+    description: API must declare a title (observed "Pure API").
+    severity: error
+    given: $.info
+    then:
+      field: title
+      function: truthy
+  tue-pure-info-version:
+    description: API must declare a version (observed Pure 5.x release tag).
+    severity: error
+    given: $.info
+    then:
+      field: version
+      function: truthy
+  tue-pure-server-ws-api:
+    description: Servers should be rooted at the Pure /ws/api base path.
+    severity: warn
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: "/ws/api"
+  tue-pure-collection-plural:
+    description: Top-level research-content collections are lower-case plural nouns (persons, research-outputs, organizations, projects, data-sets).
+    severity: warn
+    given: $.paths[*]~
+    then:
+      function: pattern
+      functionOptions:
+        match: "^/[a-z][a-z0-9-]*"
+  tue-pure-uuid-path-param:
+    description: Single-resource lookups should be keyed by a uuid/id path parameter.
+    severity: info
+    given: $.paths[?(@property.match(/\\{.*\\}$/))]~
+    then:
+      function: pattern
+      functionOptions:
+        match: "\\{(id|uuid|pureId)\\}$"
+  tue-pure-operation-tags:
+    description: Every operation should be tagged for grouping in the Pure portal.
+    severity: warn
+    given: $.paths[*][get,post,put,delete]
+    then:
+      field: tags
+      function: truthy

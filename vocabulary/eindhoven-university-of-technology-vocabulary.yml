@@ -1,0 +1,69 @@
+vocabulary:
+  name: TU/e Pure Web Service Vocabulary
+  description: >-
+    Controlled terms drawn from the Eindhoven University of Technology (TU/e)
+    Elsevier Pure Web Service OpenAPI (Pure API 5.35.x) and the TU/e Research
+    Portal OAI-PMH interface. Terms reflect the real research-information
+    (CRIS) objects exposed by the API.
+  version: '1.0.0'
+  terms:
+    - term: Research Output
+      definition: >-
+        A scholarly publication or other research result (article, book, thesis,
+        dataset reference) catalogued in Pure and exposed via /research-outputs.
+      tags: [ object, publication, research ]
+    - term: Person
+      definition: >-
+        A researcher or staff profile with identifiers such as ORCID, affiliations,
+        and organisational associations, exposed via /persons.
+      tags: [ object, person, researcher ]
+    - term: Organization
+      definition: >-
+        An institutional unit (department, research group, institute) in the TU/e
+        hierarchy, exposed via /organizations.
+      tags: [ object, organization, department ]
+    - term: Project
+      definition: >-
+        A funded or unfunded research project record, exposed via /projects.
+      tags: [ object, project, funding ]
+    - term: Data Set
+      definition: >-
+        A research dataset record describing data produced or used by TU/e research,
+        exposed via /data-sets.
+      tags: [ object, dataset, open-data ]
+    - term: Activity
+      definition: >-
+        A research activity such as a talk, editorial role, or visit, exposed via /activities.
+      tags: [ object, activity ]
+    - term: Student Thesis
+      definition: >-
+        A graduation thesis or dissertation record, exposed via /student-theses.
+      tags: [ object, thesis, education ]
+    - term: pureId
+      definition: Internal numeric Pure identifier for a record.
+      tags: [ field, identifier ]
+    - term: uuid
+      definition: Stable UUID identifier for a Pure record used in API lookups.
+      tags: [ field, identifier ]
+    - term: portalUrl
+      definition: Public human-facing URL of the record on research.tue.nl.
+      tags: [ field, url ]
+    - term: orcid
+      definition: ORCID identifier associated with a person record.
+      tags: [ field, identifier, person ]
+    - term: OAI-PMH
+      definition: >-
+        Open Archives Initiative Protocol for Metadata Harvesting; the TU/e Research
+        Portal exposes metadata at /ws/oai using verbs such as Identify,
+        ListMetadataFormats, ListRecords, and GetRecord.
+      tags: [ protocol, metadata, harvesting ]
+    - term: oai_cerif_openaire
+      definition: >-
+        OpenAIRE CERIF metadata prefix advertised by the TU/e OAI-PMH endpoint for
+        harvesting CRIS research metadata.
+      tags: [ metadata-prefix, oai-pmh, openaire ]
+    - term: metadataPrefix
+      definition: >-
+        OAI-PMH parameter selecting the metadata schema (e.g. oai_cerif_openaire,
+        mods, qdc, xmetadiss) for harvested records.
+      tags: [ parameter, oai-pmh ]

@@ -1,0 +1,38 @@
+{
+  "count": 1,
+  "pageInformation": {
+    "offset": 0,
+    "size": 20
+  },
+  "items": [
+    {
+      "pureId": 99887,
+      "uuid": "p1111111-2222-4333-8444-555566667777",
+      "name": {
+        "firstName": "Jane",
+        "lastName": "de Vries"
+      },
+      "orcid": "0000-0002-1234-5678",
+      "orcidAuthenticated": true,
+      "nationality": {
+        "term": {
+          "en_GB": "Netherlands"
+        }
+      },
+      "staffOrganizationAssociations": [
+        {
+          "organization": {
+            "uuid": "org-1111",
+            "name": {
+              "en_GB": "Department of Mathematics and Computer Science"
+            }
+          },
+          "period": {
+            "startDate": "2018-09-01"
+          }
+        }
+      ],
+      "portalUrl": "https://research.tue.nl/en/persons/jane-de-vries"
+    }
+  ]
+}

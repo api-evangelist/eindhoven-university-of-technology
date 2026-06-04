@@ -1,0 +1,32 @@
+{
+  "count": 1,
+  "pageInformation": {
+    "offset": 0,
+    "size": 20
+  },
+  "items": [
+    {
+      "pureId": 5001,
+      "uuid": "org-1111",
+      "name": {
+        "en_GB": "Department of Mathematics and Computer Science"
+      },
+      "type": {
+        "uri": "/dk/atira/pure/organisation/organisationtypes/organisation/department",
+        "term": {
+          "en_GB": "Department"
+        }
+      },
+      "lifecycle": {
+        "startDate": "1957-01-01"
+      },
+      "visibility": {
+        "key": "FREE",
+        "value": {
+          "en_GB": "Public - No restriction"
+        }
+      },
+      "portalUrl": "https://research.tue.nl/en/organisations/department-of-mathematics-and-computer-science"
+    }
+  ]
+}

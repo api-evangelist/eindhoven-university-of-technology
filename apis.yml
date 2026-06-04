@@ -51,10 +51,29 @@ apis:
       metadata. Pure Web Service access is generally API-key gated and intended for
       authorized harvesting and integration partners rather than open public use.
     humanURL: https://purefaq.tue.nl/pure/faq/index.php?action=overview
+    baseURL: https://pure.tue.nl/ws/api
     tags: [ Research, REST, SOAP, CRIS, Metadata ]
     properties:
       - type: Documentation
         url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
+      - type: OpenAPI
+        url: openapi/eindhoven-university-of-technology-pure-web-service.yaml
+      - type: x-json-schema
+        url: json-schema/eindhoven-university-of-technology-research-output-schema.json
+      - type: x-json-schema
+        url: json-schema/eindhoven-university-of-technology-person-schema.json
+      - type: x-json-schema
+        url: json-schema/eindhoven-university-of-technology-organization-schema.json
+      - type: x-json-structure
+        url: json-structure/eindhoven-university-of-technology-research-output-structure.json
+      - type: x-examples
+        url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
+      - type: x-rules
+        url: rules/eindhoven-university-of-technology-rules.yml
+      - type: x-vocabulary
+        url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
+      - type: x-json-ld
+        url: json-ld/eindhoven-university-of-technology-context.jsonld
 common:
   - type: Website
     url: https://www.tue.nl/en/

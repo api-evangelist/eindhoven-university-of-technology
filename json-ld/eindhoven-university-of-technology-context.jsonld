@@ -1,0 +1,46 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "tue": "https://research.tue.nl/vocab#",
+    "@vocab": "https://research.tue.nl/vocab#",
+    "name": "schema:name",
+    "url": "schema:url",
+    "title": "schema:headline",
+    "portalUrl": {"@id": "schema:url", "@type": "@id"},
+    "uuid": "schema:identifier",
+    "pureId": "schema:identifier",
+    "orcid": {"@id": "https://schema.org/identifier", "@type": "@id"},
+
+    "institution": {"@id": "schema:CollegeOrUniversity"},
+
+    "Person": "schema:Person",
+    "firstName": "schema:givenName",
+    "lastName": "schema:familyName",
+    "nationality": "schema:nationality",
+    "affiliation": "schema:affiliation",
+
+    "Organization": "schema:Organization",
+    "Department": "schema:CollegeDepartment",
+    "parents": {"@id": "schema:parentOrganization", "@type": "@id"},
+    "addresses": "schema:address",
+    "emails": "schema:email",
+    "phoneNumbers": "schema:telephone",
+    "webAddresses": "schema:url",
+
+    "ResearchOutput": "schema:ScholarlyArticle",
+    "subTitle": "schema:alternativeHeadline",
+    "language": "schema:inLanguage",
+    "contributors": "schema:author",
+    "managingOrganization": "schema:publisher",
+    "publicationStatuses": "schema:datePublished",
+
+    "Project": "schema:ResearchProject",
+    "DataSet": "schema:Dataset",
+    "StudentThesis": "schema:Thesis"
+  },
+  "@type": "schema:CollegeOrUniversity",
+  "name": "Eindhoven University of Technology",
+  "url": "https://www.tue.nl/en/",
+  "schema:sameAs": "https://research.tue.nl/"
+}
