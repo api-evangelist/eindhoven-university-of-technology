@@ -75,6 +75,12 @@ apis:
       - type: x-json-ld
         url: json-ld/eindhoven-university-of-technology-context.jsonld
 common:
+  - type: VulnerabilityDisclosure
+    url: security/eindhoven-university-of-technology-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/eindhoven-university-of-technology-domain-security.yml
+  - type: Authentication
+    url: authentication/eindhoven-university-of-technology-authentication.yml
   - type: Website
     url: https://www.tue.nl/en/
   - type: GitHub
