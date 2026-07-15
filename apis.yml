@@ -75,6 +75,8 @@ apis:
       - type: x-json-ld
         url: json-ld/eindhoven-university-of-technology-context.jsonld
 common:
+  - type: AgenticAccess
+    url: agentic-access/eindhoven-university-of-technology-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/eindhoven-university-of-technology-vulnerability-disclosure.yml
   - type: DomainSecurity
