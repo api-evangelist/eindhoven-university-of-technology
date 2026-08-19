@@ -1,0 +1,3178 @@
+{
+  "item": [
+    {
+      "id": "ff73dbfe-06c2-41c8-ad05-8931543e5592",
+      "name": "milestone",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b39b0e5a-eee2-419c-aebf-9099f70a7529",
+          "name": "Lists all milestones",
+          "request": {
+            "name": "Lists all milestones",
+            "description": {
+              "content": "Lists all milestones in the Pure instance. If you need to filter the milestones returned, see the POST version which supports additional filtering.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "10",
+                  "description": "Number of returned milestones per request."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "The offset for the returned list. 0 or null value is from the start"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "The order of the list, must be a value from /milestones/orderings"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bd4f474f-ba3e-4716-9591-b3cff02f4a14",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 1199,\n  \"pageInformation\": {\n    \"offset\": 9501,\n    \"size\": 4559\n  },\n  \"items\": [\n    {\n      \"milestoneType\": \"ACADEMIC\",\n      \"title\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"pureId\": 4430,\n      \"uuid\": \"16531ca8-34a8-6685-1ab4-d7156e6418c9\",\n      \"createdBy\": \"string\",\n      \"createdDate\": \"1983-05-30T16:35:19.645Z\",\n      \"modifiedBy\": \"string\",\n      \"modifiedDate\": \"2005-10-26T16:56:24.203Z\",\n      \"portalUrl\": \"string\",\n      \"prettyUrlIdentifiers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"previousUuids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"version\": \"string\",\n      \"deadline\": \"2007-09-01\",\n      \"completionState\": {\n        \"uri\": \"string\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"completedDate\": \"1960-08-22\",\n      \"award\": {\n        \"systemName\": \"string\",\n        \"uuid\": \"f491c299-ac70-c9a9-104e-2a2f936865e4\"\n      },\n      \"application\": {\n        \"systemName\": \"string\",\n        \"uuid\": \"bd92f3ee-2105-ff85-1aca-bf006e2c4732\"\n      },\n      \"project\": {\n        \"systemName\": \"string\",\n        \"uuid\": \"a2b02c0f-b274-fa9e-aed8-5fb26dd712bf\"\n      },\n      \"ethicalReview\": {\n        \"systemName\": \"string\",\n        \"uuid\": \"bd4831bc-c742-71e7-85af-4c59361b9320\"\n      },\n      \"contract\": {\n        \"systemName\": \"string\",\n        \"uuid\": \"6204041e-ada0-9ca2-df3b-be5610e06416\"\n      },\n      \"completedBy\": {\n        \"systemName\": \"string\",\n        \"uuid\": \"da052b5f-ec1e-5971-cb3a-d350953afa7a\"\n      },\n      \"reminders\": [\n        {\n          \"timeUnit\": \"WEEK\",\n          \"value\": 2558,\n          \"pureId\": 9289\n        },\n        {\n          \"timeUnit\": \"WEEK\",\n          \"value\": 1782,\n          \"pureId\": 2081\n        }\n      ],\n      \"administrativeRole\": \"string\",\n      \"academicRole\": {\n        \"uri\": \"string\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"category\": {\n        \"uri\": \"string\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"documents\": [\n        {\n          \"fileName\": \"string\",\n          \"mimeType\": \"string\",\n          \"type\": {\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"visibility\": {\n            \"key\": \"CONFIDENTIAL\",\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"pureId\": 7484,\n          \"fileId\": \"string\",\n          \"size\": 5887,\n          \"url\": \"string\",\n          \"fileStoreLocations\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          },\n          \"uploadedFile\": {\n            \"key\": \"string\",\n            \"digest\": \"string\",\n            \"digestType\": \"string\",\n            \"size\": 2111,\n            \"mimeType\": \"string\",\n            \"timeStamp\": \"1962-09-16T06:12:23.499Z\",\n            \"expires\": \"2020-04-07T02:41:35.735Z\"\n          },\n          \"remoteFile\": {\n            \"fileId\": \"string\",\n            \"fileState\": \"DELETE_IN_PROGRESS\",\n            \"sourceId\": \"string\",\n            \"storeName\": \"string\",\n            \"timeStamp\": \"1976-08-08T14:48:39.294Z\",\n            \"metadataUpdateRequired\": false\n          },\n          \"title\": \"string\",\n          \"creator\": \"string\",\n          \"created\": \"1949-02-27T07:26:49.098Z\"\n        },\n        {\n          \"fileName\": \"string\",\n          \"mimeType\": \"string\",\n          \"type\": {\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"visibility\": {\n            \"key\": \"CAMPUS\",\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"pureId\": 4063,\n          \"fileId\": \"string\",\n          \"size\": 2740,\n          \"url\": \"string\",\n          \"fileStoreLocations\": {\n            \"key_0\": \"string\"\n          },\n          \"uploadedFile\": {\n            \"key\": \"string\",\n            \"digest\": \"string\",\n            \"digestType\": \"string\",\n            \"size\": 3543,\n            \"mimeType\": \"string\",\n            \"timeStamp\": \"2008-09-12T09:36:07.457Z\",\n            \"expires\": \"2008-09-19T20:42:04.353Z\"\n          },\n          \"remoteFile\": {\n            \"fileId\": \"string\",\n            \"fileState\": \"AWAITING_DELETE\",\n            \"sourceId\": \"string\",\n            \"storeName\": \"string\",\n            \"timeStamp\": \"1995-08-18T04:01:05.384Z\",\n            \"metadataUpdateRequired\": false\n          },\n          \"title\": \"string\",\n          \"creator\": \"string\",\n          \"created\": \"1952-05-19T09:13:20.606Z\"\n        }\n      ],\n      \"responsibleUsers\": [\n        {\n          \"systemName\": \"string\",\n          \"uuid\": \"c38667f1-2be3-bd77-9969-b52fab01f5b4\"\n        },\n        {\n          \"systemName\": \"string\",\n          \"uuid\": \"750aa717-f434-31c7-2ef0-6d6ca3b66043\"\n        }\n      ],\n      \"identifiers\": [\n        {\n          \"typeDiscriminator\": \"string\"\n        },\n        {\n          \"typeDiscriminator\": \"string\"\n        }\n      ],\n      \"systemName\": \"string\"\n    },\n    {\n      \"milestoneType\": \"ACADEMIC\",\n      \"title\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"pureId\": 5358,\n      \"uuid\": \"a7a2558d-b0ee-73f5-1615-b0139b9b98e5\",\n      \"createdBy\": \"string\",\n      \"createdDate\": \"2013-10-23T16:12:05.860Z\",\n      \"modifiedBy\": \"string\",\n      \"modifiedDate\": \"1991-07-31T13:01:50.973Z\",\n      \"portalUrl\": \"string\",\n      \"prettyUrlIdentifiers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"previousUuids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"version\": \"string\",\n      \"deadline\": \"1950-02-04\",\n      \"completionState\": {\n        \"uri\": \"string\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"completedDate\": \"1975-06-14\",\n      \"award\": {\n        \"systemName\": \"string\",\n        \"uuid\": \"df503a86-3256-87ee-e1e3-8901d7358327\"\n      },\n      \"application\": {\n        \"systemName\": \"string\",\n        \"uuid\": \"b42f8315-5afd-c14b-6d6c-10ea38b7a167\"\n      },\n      \"project\": {\n        \"systemName\": \"string\",\n        \"uuid\": \"2226c9f1-0b20-469e-1ecc-309db0ab9983\"\n      },\n      \"ethicalReview\": {\n        \"systemName\": \"string\",\n        \"uuid\": \"bbdd022d-6edd-27f8-dd57-d59715995d13\"\n      },\n      \"contract\": {\n        \"systemName\": \"string\",\n        \"uuid\": \"ae70c4a6-4464-cf40-9d6a-527a630e798a\"\n      },\n      \"completedBy\": {\n        \"systemName\": \"string\",\n        \"uuid\": \"ad19bd5c-cd9d-0f95-2db1-731014e672b5\"\n      },\n      \"reminders\": [\n        {\n          \"timeUnit\": \"DAY\",\n          \"value\": 7905,\n          \"pureId\": 4203\n        },\n        {\n          \"timeUnit\": \"DAY\",\n          \"value\": 7463,\n          \"pureId\": 400\n        }\n      ],\n      \"administrativeRole\": \"string\",\n      \"academicRole\": {\n        \"uri\": \"string\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"category\": {\n        \"uri\": \"string\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"documents\": [\n        {\n          \"fileName\": \"string\",\n          \"mimeType\": \"string\",\n          \"type\": {\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"visibility\": {\n            \"key\": \"CAMPUS\",\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"pureId\": 1538,\n          \"fileId\": \"string\",\n          \"size\": 768,\n          \"url\": \"string\",\n          \"fileStoreLocations\": {\n            \"key_0\": \"string\"\n          },\n          \"uploadedFile\": {\n            \"key\": \"string\",\n            \"digest\": \"string\",\n            \"digestType\": \"string\",\n            \"size\": 2383,\n            \"mimeType\": \"string\",\n            \"timeStamp\": \"1974-05-20T12:32:38.690Z\",\n            \"expires\": \"1997-12-08T06:43:27.563Z\"\n          },\n          \"remoteFile\": {\n            \"fileId\": \"string\",\n            \"fileState\": \"CREATION_IN_PROGRESS\",\n            \"sourceId\": \"string\",\n            \"storeName\": \"string\",\n            \"timeStamp\": \"1964-08-12T22:51:52.414Z\",\n            \"metadataUpdateRequired\": false\n          },\n          \"title\": \"string\",\n          \"creator\": \"string\",\n          \"created\": \"1999-05-28T21:44:21.488Z\"\n        },\n        {\n          \"fileName\": \"string\",\n          \"mimeType\": \"string\",\n          \"type\": {\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"visibility\": {\n            \"key\": \"CAMPUS\",\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"pureId\": 8144,\n          \"fileId\": \"string\",\n          \"size\": 8181,\n          \"url\": \"string\",\n          \"fileStoreLocations\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          },\n          \"uploadedFile\": {\n            \"key\": \"string\",\n            \"digest\": \"string\",\n            \"digestType\": \"string\",\n            \"size\": 7731,\n            \"mimeType\": \"string\",\n            \"timeStamp\": \"1959-02-17T09:02:09.185Z\",\n            \"expires\": \"2013-05-13T01:25:56.421Z\"\n          },\n          \"remoteFile\": {\n            \"fileId\": \"string\",\n            \"fileState\": \"AWAITING_DELETE\",\n            \"sourceId\": \"string\",\n            \"storeName\": \"string\",\n            \"timeStamp\": \"1948-04-03T21:16:16.435Z\",\n            \"metadataUpdateRequired\": false\n          },\n          \"title\": \"string\",\n          \"creator\": \"string\",\n          \"created\": \"1995-06-05T08:41:28.675Z\"\n        }\n      ],\n      \"responsibleUsers\": [\n        {\n          \"systemName\": \"string\",\n          \"uuid\": \"9bceab27-f0a0-8c46-4e87-d5be2be9cc24\"\n        },\n        {\n          \"systemName\": \"string\",\n          \"uuid\": \"d6863ee5-f488-9bc8-f4b7-8f6df540fa54\"\n        }\n      ],\n      \"identifiers\": [\n        {\n          \"typeDiscriminator\": \"string\"\n        },\n        {\n          \"typeDiscriminator\": \"string\"\n        }\n      ],\n      \"systemName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "710f78ab-579e-4994-bdd1-3b866aadaa20",
+          "name": "Create milestone",
+          "request": {
+            "name": "Create milestone",
+            "description": {
+              "content": "Create milestone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"milestoneType\": \"<string>\",\n  \"title\": {\n    \"key_0\": \"<string>\"\n  },\n  \"version\": \"<string>\",\n  \"deadline\": \"<date>\",\n  \"completionState\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    }\n  },\n  \"completedDate\": \"<date>\",\n  \"award\": \"<object>\",\n  \"application\": \"<object>\",\n  \"project\": \"<object>\",\n  \"ethicalReview\": \"<object>\",\n  \"contract\": \"<object>\",\n  \"completedBy\": \"<object>\",\n  \"reminders\": [\n    {\n      \"timeUnit\": \"<string>\",\n      \"value\": \"<integer>\"\n    },\n    {\n      \"timeUnit\": \"<string>\",\n      \"value\": \"<integer>\"\n    }\n  ],\n  \"administrativeRole\": \"<string>\",\n  \"academicRole\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"key_0\": \"<string>\"\n    }\n  },\n  \"description\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"category\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"key_0\": \"<string>\"\n    }\n  },\n  \"documents\": [\n    {\n      \"fileName\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"key_0\": \"<string>\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"key_0\": \"<string>\"\n        }\n      },\n      \"size\": \"<long>\",\n      \"uploadedFile\": {},\n      \"remoteFile\": {\n        \"fileId\": \"<string>\",\n        \"fileState\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"storeName\": \"<string>\",\n        \"timeStamp\": \"<dateTime>\",\n        \"metadataUpdateRequired\": false\n      },\n      \"fileData\": \"<byte>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"fileName\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\",\n          \"key_3\": \"<string>\"\n        }\n      },\n      \"size\": \"<long>\",\n      \"uploadedFile\": {},\n      \"remoteFile\": {\n        \"fileId\": \"<string>\",\n        \"fileState\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"storeName\": \"<string>\",\n        \"timeStamp\": \"<dateTime>\",\n        \"metadataUpdateRequired\": false\n      },\n      \"fileData\": \"<byte>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"responsibleUsers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1e4f0e5b-dfe3-4696-aba6-79ccff5e27e5",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"milestoneType\": \"<string>\",\n  \"title\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"version\": \"<string>\",\n  \"deadline\": \"<date>\",\n  \"completionState\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"completedDate\": \"<date>\",\n  \"award\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"application\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"project\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"ethicalReview\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"contract\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"completedBy\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"reminders\": [\n    {\n      \"timeUnit\": \"<string>\",\n      \"value\": \"<integer>\"\n    },\n    {\n      \"timeUnit\": \"<string>\",\n      \"value\": \"<integer>\"\n    }\n  ],\n  \"administrativeRole\": \"<string>\",\n  \"academicRole\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"description\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"category\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"documents\": [\n    {\n      \"fileName\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"size\": \"<long>\",\n      \"uploadedFile\": {},\n      \"remoteFile\": {\n        \"fileId\": \"<string>\",\n        \"fileState\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"storeName\": \"<string>\",\n        \"timeStamp\": \"<dateTime>\",\n        \"metadataUpdateRequired\": false\n      },\n      \"fileData\": \"<byte>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"fileName\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"size\": \"<long>\",\n      \"uploadedFile\": {},\n      \"remoteFile\": {\n        \"fileId\": \"<string>\",\n        \"fileState\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"storeName\": \"<string>\",\n        \"timeStamp\": \"<dateTime>\",\n        \"metadataUpdateRequired\": false\n      },\n      \"fileData\": \"<byte>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"responsibleUsers\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"milestoneType\": \"<string>\",\n  \"title\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"pureId\": 1665,\n  \"uuid\": \"63e5cb26-010f-527c-40fb-2f3ea8ed167f\",\n  \"createdBy\": \"string\",\n  \"createdDate\": \"1980-03-29T12:55:40.135Z\",\n  \"modifiedBy\": \"string\",\n  \"modifiedDate\": \"1976-06-18T04:58:33.302Z\",\n  \"portalUrl\": \"string\",\n  \"prettyUrlIdentifiers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"previousUuids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"version\": \"<string>\",\n  \"deadline\": \"<date>\",\n  \"completionState\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"completedDate\": \"<date>\",\n  \"award\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"application\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"project\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"ethicalReview\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"contract\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"completedBy\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"reminders\": [\n    {\n      \"timeUnit\": \"<string>\",\n      \"value\": \"<integer>\",\n      \"pureId\": 3311\n    },\n    {\n      \"timeUnit\": \"<string>\",\n      \"value\": \"<integer>\",\n      \"pureId\": 1824\n    }\n  ],\n  \"administrativeRole\": \"<string>\",\n  \"academicRole\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"description\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"category\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"documents\": [\n    {\n      \"fileName\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"pureId\": 8916,\n      \"fileId\": \"string\",\n      \"size\": \"<long>\",\n      \"url\": \"string\",\n      \"fileStoreLocations\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"uploadedFile\": {\n        \"digest\": \"string\",\n        \"digestType\": \"string\",\n        \"size\": 5672,\n        \"mimeType\": \"string\",\n        \"timeStamp\": \"2001-01-30T23:45:37.282Z\",\n        \"expires\": \"2017-02-18T05:40:23.575Z\",\n        \"key\": \"string\"\n      },\n      \"remoteFile\": {\n        \"fileId\": \"<string>\",\n        \"fileState\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"storeName\": \"<string>\",\n        \"timeStamp\": \"<dateTime>\",\n        \"metadataUpdateRequired\": false\n      },\n      \"title\": \"<string>\",\n      \"creator\": \"string\",\n      \"created\": \"1975-05-01T21:23:28.864Z\"\n    },\n    {\n      \"fileName\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"pureId\": 8192,\n      \"fileId\": \"string\",\n      \"size\": \"<long>\",\n      \"url\": \"string\",\n      \"fileStoreLocations\": {\n        \"key_0\": \"string\"\n      },\n      \"uploadedFile\": {\n        \"digest\": \"string\",\n        \"digestType\": \"string\",\n        \"size\": 1749,\n        \"mimeType\": \"string\",\n        \"timeStamp\": \"1947-07-21T04:14:48.353Z\",\n        \"expires\": \"1996-03-21T18:03:20.739Z\",\n        \"key\": \"string\"\n      },\n      \"remoteFile\": {\n        \"fileId\": \"<string>\",\n        \"fileState\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"storeName\": \"<string>\",\n        \"timeStamp\": \"<dateTime>\",\n        \"metadataUpdateRequired\": false\n      },\n      \"title\": \"<string>\",\n      \"creator\": \"string\",\n      \"created\": \"1999-02-28T15:24:54.008Z\"\n    }\n  ],\n  \"responsibleUsers\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ],\n  \"systemName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "663126cb-3c2f-47ed-ba93-6da348cbfd70",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"milestoneType\": \"<string>\",\n  \"title\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"version\": \"<string>\",\n  \"deadline\": \"<date>\",\n  \"completionState\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"completedDate\": \"<date>\",\n  \"award\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"application\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"project\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"ethicalReview\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"contract\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"completedBy\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"reminders\": [\n    {\n      \"timeUnit\": \"<string>\",\n      \"value\": \"<integer>\"\n    },\n    {\n      \"timeUnit\": \"<string>\",\n      \"value\": \"<integer>\"\n    }\n  ],\n  \"administrativeRole\": \"<string>\",\n  \"academicRole\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"description\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"category\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"documents\": [\n    {\n      \"fileName\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"size\": \"<long>\",\n      \"uploadedFile\": {},\n      \"remoteFile\": {\n        \"fileId\": \"<string>\",\n        \"fileState\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"storeName\": \"<string>\",\n        \"timeStamp\": \"<dateTime>\",\n        \"metadataUpdateRequired\": false\n      },\n      \"fileData\": \"<byte>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"fileName\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"size\": \"<long>\",\n      \"uploadedFile\": {},\n      \"remoteFile\": {\n        \"fileId\": \"<string>\",\n        \"fileState\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"storeName\": \"<string>\",\n        \"timeStamp\": \"<dateTime>\",\n        \"metadataUpdateRequired\": false\n      },\n      \"fileData\": \"<byte>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"responsibleUsers\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7719,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0dc47fc9-cf9b-4a24-a8e9-d11d70a03a14",
+          "name": "A list of allowed classifications for the category property",
+          "request": {
+            "name": "A list of allowed classifications for the category property",
+            "description": {
+              "content": "Get a list of classifications that can be used when submitting a category.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                "allowed-categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ad8274c2-b34f-4bc8-b0ad-733a2c96103e",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    "allowed-categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c3efcc34-1975-48d2-9980-81d86d5735cb",
+          "name": "A list of allowed completion states",
+          "request": {
+            "name": "A list of allowed completion states",
+            "description": {
+              "content": "Get a list of allowed completion state types that can be used for the 'completionState' attribute of milestones",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                "allowed-completion-states"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "973bc9d6-db6f-4f8b-b7fd-4cdfb9a3ba51",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    "allowed-completion-states"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f40e6a89-3167-42ee-be1a-c5079c995004",
+          "name": "A list of allowed document types",
+          "request": {
+            "name": "A list of allowed document types",
+            "description": {
+              "content": "Get a list of allowed license types that can be used for the 'documents.type' attribute of milestones",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                "allowed-document-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "96b42cc5-74d5-4e43-b22e-7d21021467ce",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    "allowed-document-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b6f98df5-cb17-45b8-9872-cabea41dcd06",
+          "name": "A list of allowed locales in localized strings",
+          "request": {
+            "name": "A list of allowed locales in localized strings",
+            "description": {
+              "content": "Get a list of allowed locales that can be used when submitting localized string entities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                "allowed-locales"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5764af2f-54c6-4ada-b8fc-9afea23cb105",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    "allowed-locales"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"locales\": \"/xk_CT/\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e7db10d-ffbc-433d-b946-94c11bc68953",
+          "name": "A list of allowed milestone states",
+          "request": {
+            "name": "A list of allowed milestone states",
+            "description": {
+              "content": "Get a list of allowed milestone state types that can be used for the 'milestoneState' attribute of milestones",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                "allowed-milestone-states"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "04e27cbf-5c49-4677-b34a-f29d890f1e27",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    "allowed-milestone-states"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3384170d-515a-411d-a0d8-9fe33c0027a8",
+          "name": "A list of allowed academic roles for milestones which have a related application",
+          "request": {
+            "name": "A list of allowed academic roles for milestones which have a related application",
+            "description": {
+              "content": "Get a list of allowed academic role types that can be used for the 'academicRole' attribute of milestones",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                "application",
+                "allowed-academic-roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1929ea5b-7e75-4f2a-aacd-0f2824508488",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    "application",
+                    "allowed-academic-roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74370e82-c6d4-4a34-82a5-c9ebbe3d320d",
+          "name": "A list of allowed administrative roles for milestones which have a related application",
+          "request": {
+            "name": "A list of allowed administrative roles for milestones which have a related application",
+            "description": {
+              "content": "Get a list of allowed administrative role types that can be used for the 'administrativeRole' attribute of milestones which have a related application",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                "application",
+                "allowed-administrative-roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "818fb951-d3fd-4c01-9017-88e441241a08",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    "application",
+                    "allowed-administrative-roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    \"string\",\n    \"string\"\n  ],\n  \"count\": 9037\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a71c5074-7dd8-4598-b040-d955b5eb0eff",
+          "name": "A list of allowed academic roles for milestones which have a related award",
+          "request": {
+            "name": "A list of allowed academic roles for milestones which have a related award",
+            "description": {
+              "content": "Get a list of allowed academic role types that can be used for the 'academicRole' attribute of milestones",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                "award",
+                "allowed-academic-roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bf15672a-5979-4072-b465-d932b5de3088",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    "award",
+                    "allowed-academic-roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed2b3d8c-7621-4582-aa54-53deb79b8b50",
+          "name": "A list of allowed administrative roles for milestones which have a related award",
+          "request": {
+            "name": "A list of allowed administrative roles for milestones which have a related award",
+            "description": {
+              "content": "Get a list of allowed administrative role types that can be used for the 'administrativeRole' attribute of milestones which have a related award",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                "award",
+                "allowed-administrative-roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "06f390c9-9daa-4be4-a91f-44fda48fe796",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    "award",
+                    "allowed-administrative-roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    \"string\",\n    \"string\"\n  ],\n  \"count\": 6207\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c6edea5e-f13c-4839-89e9-1d3c128ccc14",
+          "name": "A list of allowed academic roles for milestones which have a related contract",
+          "request": {
+            "name": "A list of allowed academic roles for milestones which have a related contract",
+            "description": {
+              "content": "Get a list of allowed academic role types that can be used for the 'academicRole' attribute of milestones",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                "contract",
+                "allowed-academic-roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e3ca3a69-2239-4a2d-9791-f0ef18bc2daf",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    "contract",
+                    "allowed-academic-roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2af802a2-0560-4b86-8e74-05e4c28d91d6",
+          "name": "A list of allowed administrative roles for milestones which have a related contract",
+          "request": {
+            "name": "A list of allowed administrative roles for milestones which have a related contract",
+            "description": {
+              "content": "Get a list of allowed administrative role types that can be used for the 'administrativeRole' attribute of milestones which have a related contract",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                "contract",
+                "allowed-administrative-roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7ea511a9-dc8b-4edf-8609-7522bac052f3",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    "contract",
+                    "allowed-administrative-roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    \"string\",\n    \"string\"\n  ],\n  \"count\": 6207\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "564157e6-3331-4cf5-9999-1a1af4f905a4",
+          "name": "A list of allowed academic roles for milestones which have a related ethical review",
+          "request": {
+            "name": "A list of allowed academic roles for milestones which have a related ethical review",
+            "description": {
+              "content": "Get a list of allowed academic role types that can be used for the 'academicRole' attribute of milestones",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                "ethical-review",
+                "allowed-academic-roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b2b2d317-0f44-49a2-9b51-976c56b31b4a",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    "ethical-review",
+                    "allowed-academic-roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c84c6d2-6d8b-431d-ac2d-b8448785275e",
+          "name": "A list of allowed administrative roles for milestones which have a related ethical review",
+          "request": {
+            "name": "A list of allowed administrative roles for milestones which have a related ethical review",
+            "description": {
+              "content": "Get a list of allowed administrative role types that can be used for the 'administrativeRole' attribute of milestones which have a related ethical review",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                "ethical-review",
+                "allowed-administrative-roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a9da1032-1ce2-4ab4-851e-93575c6b220b",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    "ethical-review",
+                    "allowed-administrative-roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    \"string\",\n    \"string\"\n  ],\n  \"count\": 6207\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7d6b3be-f24a-40ae-87b3-eea6e55e9958",
+          "name": "Upload file for a specific milestone",
+          "request": {
+            "name": "Upload file for a specific milestone",
+            "description": {
+              "content": "Uploads file for the milestone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                "file-uploads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "*/*"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "file"
+            }
+          },
+          "response": [
+            {
+              "id": "9a8484f2-eca2-48c4-8c57-8f6dd67f4bb9",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    "file-uploads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Set the mime type for the file",
+                    "key": "Content-Type",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "file"
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"digest\": \"string\",\n  \"digestType\": \"string\",\n  \"size\": 884,\n  \"mimeType\": \"string\",\n  \"timeStamp\": \"1963-05-13T16:09:50.627Z\",\n  \"expires\": \"2020-03-29T03:28:48.450Z\",\n  \"key\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0920ca56-fb47-4798-99f6-f517772ec57e",
+          "name": "Lists available orderings",
+          "request": {
+            "name": "Lists available orderings",
+            "description": {
+              "content": "Lists all orderings available to the milestones endpoint. These values can be used by the order parameter when listing milestones.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                "orderings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7727695b-76f4-45fe-9d2a-957cb93f8d5c",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    "orderings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd160466-3752-4c3c-9ac3-6ca3549db3ff",
+          "name": "A list of allowed academic roles for milestones which have a related project",
+          "request": {
+            "name": "A list of allowed academic roles for milestones which have a related project",
+            "description": {
+              "content": "Get a list of allowed academic role types that can be used for the 'academicRole' attribute of milestones",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                "project",
+                "allowed-academic-roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e9cc48e1-217c-4518-b1aa-7d1192cd9824",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    "project",
+                    "allowed-academic-roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "55bca56d-06db-45a3-b3a7-7d43fe4694df",
+          "name": "A list of allowed administrative roles for milestones which have a related project",
+          "request": {
+            "name": "A list of allowed administrative roles for milestones which have a related project",
+            "description": {
+              "content": "Get a list of allowed administrative role types that can be used for the 'administrativeRole' attribute of milestones which have a related project",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                "project",
+                "allowed-administrative-roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "25054423-0162-417c-9879-c7c45c290db0",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    "project",
+                    "allowed-administrative-roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    \"string\",\n    \"string\"\n  ],\n  \"count\": 6207\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2fd7c21-61ca-47f5-8679-f7ebcc6cf9f9",
+          "name": "Query operation for milestones",
+          "request": {
+            "name": "Query operation for milestones",
+            "description": {
+              "content": "Lists milestones in the Pure instance that matches the provided query, similar to the GET version, instead of using parameters to alter the response, an JSON document is posted with the request. The JSON document contains fields for all the parameters available for the GET version, but also additional filtering options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"uuids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"size\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"orderings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"searchString\": \"<string>\",\n  \"relatedContentSystemName\": \"<string>\",\n  \"relatedContentUuid\": \"<string>\",\n  \"orderBy\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "be7cf389-8c2e-41e0-a5ea-e84f519d9713",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"uuids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"size\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"orderings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"searchString\": \"<string>\",\n  \"relatedContentSystemName\": \"<string>\",\n  \"relatedContentUuid\": \"<string>\",\n  \"orderBy\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 3256,\n  \"pageInformation\": {\n    \"offset\": 7830,\n    \"size\": 7491\n  },\n  \"items\": [\n    {\n      \"milestoneType\": \"<string>\",\n      \"title\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"pureId\": 1572,\n      \"uuid\": \"54789066-8490-9c36-5390-8351aea3de03\",\n      \"createdBy\": \"string\",\n      \"createdDate\": \"2011-12-13T06:56:13.536Z\",\n      \"modifiedBy\": \"string\",\n      \"modifiedDate\": \"2010-02-17T02:02:49.316Z\",\n      \"portalUrl\": \"string\",\n      \"prettyUrlIdentifiers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"previousUuids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"version\": \"<string>\",\n      \"deadline\": \"<date>\",\n      \"completionState\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"completedDate\": \"<date>\",\n      \"award\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      },\n      \"application\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      },\n      \"project\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      },\n      \"ethicalReview\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      },\n      \"contract\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      },\n      \"completedBy\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      },\n      \"reminders\": [\n        {\n          \"timeUnit\": \"<string>\",\n          \"value\": \"<integer>\",\n          \"pureId\": 4731\n        },\n        {\n          \"timeUnit\": \"<string>\",\n          \"value\": \"<integer>\",\n          \"pureId\": 6863\n        }\n      ],\n      \"administrativeRole\": \"<string>\",\n      \"academicRole\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"category\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"documents\": [\n        {\n          \"fileName\": \"<string>\",\n          \"mimeType\": \"<string>\",\n          \"type\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"visibility\": {\n            \"key\": \"<string>\",\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"pureId\": 3296,\n          \"fileId\": \"string\",\n          \"size\": \"<long>\",\n          \"url\": \"string\",\n          \"fileStoreLocations\": {\n            \"key_0\": \"string\"\n          },\n          \"uploadedFile\": {\n            \"digest\": \"string\",\n            \"digestType\": \"string\",\n            \"size\": 9046,\n            \"mimeType\": \"string\",\n            \"timeStamp\": \"1948-11-19T11:41:56.762Z\",\n            \"expires\": \"1967-06-17T16:29:26.244Z\",\n            \"key\": \"string\"\n          },\n          \"remoteFile\": {\n            \"fileId\": \"<string>\",\n            \"fileState\": \"<string>\",\n            \"sourceId\": \"<string>\",\n            \"storeName\": \"<string>\",\n            \"timeStamp\": \"<dateTime>\",\n            \"metadataUpdateRequired\": false\n          },\n          \"title\": \"<string>\",\n          \"creator\": \"string\",\n          \"created\": \"2019-12-14T22:41:20.528Z\"\n        },\n        {\n          \"fileName\": \"<string>\",\n          \"mimeType\": \"<string>\",\n          \"type\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"visibility\": {\n            \"key\": \"<string>\",\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"pureId\": 3542,\n          \"fileId\": \"string\",\n          \"size\": \"<long>\",\n          \"url\": \"string\",\n          \"fileStoreLocations\": {\n            \"key_0\": \"string\"\n          },\n          \"uploadedFile\": {\n            \"digest\": \"string\",\n            \"digestType\": \"string\",\n            \"size\": 8228,\n            \"mimeType\": \"string\",\n            \"timeStamp\": \"1970-04-03T14:19:04.143Z\",\n            \"expires\": \"1953-12-23T02:53:56.950Z\",\n            \"key\": \"string\"\n          },\n          \"remoteFile\": {\n            \"fileId\": \"<string>\",\n            \"fileState\": \"<string>\",\n            \"sourceId\": \"<string>\",\n            \"storeName\": \"<string>\",\n            \"timeStamp\": \"<dateTime>\",\n            \"metadataUpdateRequired\": false\n          },\n          \"title\": \"<string>\",\n          \"creator\": \"string\",\n          \"created\": \"1952-12-07T15:32:22.995Z\"\n        }\n      ],\n      \"responsibleUsers\": [\n        {\n          \"systemName\": \"<string>\",\n          \"uuid\": \"<uuid>\"\n        },\n        {\n          \"systemName\": \"<string>\",\n          \"uuid\": \"<uuid>\"\n        }\n      ],\n      \"identifiers\": [\n        {\n          \"typeDiscriminator\": \"<string>\"\n        },\n        {\n          \"typeDiscriminator\": \"<string>\"\n        }\n      ],\n      \"systemName\": \"string\"\n    },\n    {\n      \"milestoneType\": \"<string>\",\n      \"title\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"pureId\": 2383,\n      \"uuid\": \"39ab9a8c-8d5a-ffa9-8d98-43c560926c07\",\n      \"createdBy\": \"string\",\n      \"createdDate\": \"2014-12-17T15:39:24.942Z\",\n      \"modifiedBy\": \"string\",\n      \"modifiedDate\": \"1968-01-17T11:38:33.837Z\",\n      \"portalUrl\": \"string\",\n      \"prettyUrlIdentifiers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"previousUuids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"version\": \"<string>\",\n      \"deadline\": \"<date>\",\n      \"completionState\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"completedDate\": \"<date>\",\n      \"award\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      },\n      \"application\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      },\n      \"project\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      },\n      \"ethicalReview\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      },\n      \"contract\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      },\n      \"completedBy\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      },\n      \"reminders\": [\n        {\n          \"timeUnit\": \"<string>\",\n          \"value\": \"<integer>\",\n          \"pureId\": 8304\n        },\n        {\n          \"timeUnit\": \"<string>\",\n          \"value\": \"<integer>\",\n          \"pureId\": 6664\n        }\n      ],\n      \"administrativeRole\": \"<string>\",\n      \"academicRole\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"category\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"documents\": [\n        {\n          \"fileName\": \"<string>\",\n          \"mimeType\": \"<string>\",\n          \"type\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"visibility\": {\n            \"key\": \"<string>\",\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"pureId\": 9743,\n          \"fileId\": \"string\",\n          \"size\": \"<long>\",\n          \"url\": \"string\",\n          \"fileStoreLocations\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"uploadedFile\": {\n            \"digest\": \"string\",\n            \"digestType\": \"string\",\n            \"size\": 4727,\n            \"mimeType\": \"string\",\n            \"timeStamp\": \"1996-06-13T04:49:36.247Z\",\n            \"expires\": \"1964-05-27T06:33:18.799Z\",\n            \"key\": \"string\"\n          },\n          \"remoteFile\": {\n            \"fileId\": \"<string>\",\n            \"fileState\": \"<string>\",\n            \"sourceId\": \"<string>\",\n            \"storeName\": \"<string>\",\n            \"timeStamp\": \"<dateTime>\",\n            \"metadataUpdateRequired\": false\n          },\n          \"title\": \"<string>\",\n          \"creator\": \"string\",\n          \"created\": \"1997-10-27T12:58:14.164Z\"\n        },\n        {\n          \"fileName\": \"<string>\",\n          \"mimeType\": \"<string>\",\n          \"type\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"visibility\": {\n            \"key\": \"<string>\",\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"pureId\": 9024,\n          \"fileId\": \"string\",\n          \"size\": \"<long>\",\n          \"url\": \"string\",\n          \"fileStoreLocations\": {\n            \"key_0\": \"string\"\n          },\n          \"uploadedFile\": {\n            \"digest\": \"string\",\n            \"digestType\": \"string\",\n            \"size\": 2848,\n            \"mimeType\": \"string\",\n            \"timeStamp\": \"1994-04-08T17:36:52.399Z\",\n            \"expires\": \"1966-05-31T07:54:44.480Z\",\n            \"key\": \"string\"\n          },\n          \"remoteFile\": {\n            \"fileId\": \"<string>\",\n            \"fileState\": \"<string>\",\n            \"sourceId\": \"<string>\",\n            \"storeName\": \"<string>\",\n            \"timeStamp\": \"<dateTime>\",\n            \"metadataUpdateRequired\": false\n          },\n          \"title\": \"<string>\",\n          \"creator\": \"string\",\n          \"created\": \"2018-02-22T12:48:28.621Z\"\n        }\n      ],\n      \"responsibleUsers\": [\n        {\n          \"systemName\": \"<string>\",\n          \"uuid\": \"<uuid>\"\n        },\n        {\n          \"systemName\": \"<string>\",\n          \"uuid\": \"<uuid>\"\n        }\n      ],\n      \"identifiers\": [\n        {\n          \"typeDiscriminator\": \"<string>\"\n        },\n        {\n          \"typeDiscriminator\": \"<string>\"\n        }\n      ],\n      \"systemName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1174ac38-a0ef-44a7-9d7f-c773aad8c20c",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"uuids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"size\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"orderings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"searchString\": \"<string>\",\n  \"relatedContentSystemName\": \"<string>\",\n  \"relatedContentUuid\": \"<string>\",\n  \"orderBy\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7719,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a42213b4-a401-431e-8f80-a66e68c61f87",
+          "name": "Get milestone",
+          "request": {
+            "name": "Get milestone",
+            "description": {
+              "content": "Get milestone with specific UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the desired milestone"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a244f8ce-5677-4cad-86ad-dad49270bb7a",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the desired milestone"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"milestoneType\": \"<string>\",\n  \"title\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"pureId\": 1665,\n  \"uuid\": \"63e5cb26-010f-527c-40fb-2f3ea8ed167f\",\n  \"createdBy\": \"string\",\n  \"createdDate\": \"1980-03-29T12:55:40.135Z\",\n  \"modifiedBy\": \"string\",\n  \"modifiedDate\": \"1976-06-18T04:58:33.302Z\",\n  \"portalUrl\": \"string\",\n  \"prettyUrlIdentifiers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"previousUuids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"version\": \"<string>\",\n  \"deadline\": \"<date>\",\n  \"completionState\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"completedDate\": \"<date>\",\n  \"award\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"application\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"project\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"ethicalReview\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"contract\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"completedBy\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"reminders\": [\n    {\n      \"timeUnit\": \"<string>\",\n      \"value\": \"<integer>\",\n      \"pureId\": 3311\n    },\n    {\n      \"timeUnit\": \"<string>\",\n      \"value\": \"<integer>\",\n      \"pureId\": 1824\n    }\n  ],\n  \"administrativeRole\": \"<string>\",\n  \"academicRole\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"description\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"category\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"documents\": [\n    {\n      \"fileName\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"pureId\": 8916,\n      \"fileId\": \"string\",\n      \"size\": \"<long>\",\n      \"url\": \"string\",\n      \"fileStoreLocations\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"uploadedFile\": {\n        \"digest\": \"string\",\n        \"digestType\": \"string\",\n        \"size\": 5672,\n        \"mimeType\": \"string\",\n        \"timeStamp\": \"2001-01-30T23:45:37.282Z\",\n        \"expires\": \"2017-02-18T05:40:23.575Z\",\n        \"key\": \"string\"\n      },\n      \"remoteFile\": {\n        \"fileId\": \"<string>\",\n        \"fileState\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"storeName\": \"<string>\",\n        \"timeStamp\": \"<dateTime>\",\n        \"metadataUpdateRequired\": false\n      },\n      \"title\": \"<string>\",\n      \"creator\": \"string\",\n      \"created\": \"1975-05-01T21:23:28.864Z\"\n    },\n    {\n      \"fileName\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"pureId\": 8192,\n      \"fileId\": \"string\",\n      \"size\": \"<long>\",\n      \"url\": \"string\",\n      \"fileStoreLocations\": {\n        \"key_0\": \"string\"\n      },\n      \"uploadedFile\": {\n        \"digest\": \"string\",\n        \"digestType\": \"string\",\n        \"size\": 1749,\n        \"mimeType\": \"string\",\n        \"timeStamp\": \"1947-07-21T04:14:48.353Z\",\n        \"expires\": \"1996-03-21T18:03:20.739Z\",\n        \"key\": \"string\"\n      },\n      \"remoteFile\": {\n        \"fileId\": \"<string>\",\n        \"fileState\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"storeName\": \"<string>\",\n        \"timeStamp\": \"<dateTime>\",\n        \"metadataUpdateRequired\": false\n      },\n      \"title\": \"<string>\",\n      \"creator\": \"string\",\n      \"created\": \"1999-02-28T15:24:54.008Z\"\n    }\n  ],\n  \"responsibleUsers\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ],\n  \"systemName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7767804a-9eb0-485e-95bf-3cb7ec72a2e8",
+              "name": "The requested content have changed UUID",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the desired milestone"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Moved Permanently",
+              "code": 301,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "89888d65-ae07-43b0-befa-0f7ad0df4e5d",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the desired milestone"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7719,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eae22927-9f6f-4c95-83cb-f0cd177c8c81",
+          "name": "Update milestone",
+          "request": {
+            "name": "Update milestone",
+            "description": {
+              "content": "Update milestone with specific UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the milestone to update"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"milestoneType\": \"<string>\",\n  \"title\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"version\": \"<string>\",\n  \"deadline\": \"<date>\",\n  \"completionState\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    }\n  },\n  \"completedDate\": \"<date>\",\n  \"award\": \"<object>\",\n  \"application\": \"<object>\",\n  \"project\": \"<object>\",\n  \"ethicalReview\": \"<object>\",\n  \"contract\": \"<object>\",\n  \"completedBy\": \"<object>\",\n  \"reminders\": [\n    {\n      \"timeUnit\": \"<string>\",\n      \"value\": \"<integer>\"\n    },\n    {\n      \"timeUnit\": \"<string>\",\n      \"value\": \"<integer>\"\n    }\n  ],\n  \"administrativeRole\": \"<string>\",\n  \"academicRole\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"key_0\": \"<string>\"\n    }\n  },\n  \"description\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"category\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"key_0\": \"<string>\"\n    }\n  },\n  \"documents\": [\n    {\n      \"fileName\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"key_0\": \"<string>\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\",\n          \"key_3\": \"<string>\"\n        }\n      },\n      \"size\": \"<long>\",\n      \"uploadedFile\": {},\n      \"remoteFile\": {\n        \"fileId\": \"<string>\",\n        \"fileState\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"storeName\": \"<string>\",\n        \"timeStamp\": \"<dateTime>\",\n        \"metadataUpdateRequired\": false\n      },\n      \"fileData\": \"<byte>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"fileName\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        }\n      },\n      \"size\": \"<long>\",\n      \"uploadedFile\": {},\n      \"remoteFile\": {\n        \"fileId\": \"<string>\",\n        \"fileState\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"storeName\": \"<string>\",\n        \"timeStamp\": \"<dateTime>\",\n        \"metadataUpdateRequired\": false\n      },\n      \"fileData\": \"<byte>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"responsibleUsers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3eaf5a6a-b17a-4367-93b2-fb8d8d1a4bb7",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the milestone to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"milestoneType\": \"<string>\",\n  \"title\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"version\": \"<string>\",\n  \"deadline\": \"<date>\",\n  \"completionState\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"completedDate\": \"<date>\",\n  \"award\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"application\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"project\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"ethicalReview\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"contract\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"completedBy\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"reminders\": [\n    {\n      \"timeUnit\": \"<string>\",\n      \"value\": \"<integer>\"\n    },\n    {\n      \"timeUnit\": \"<string>\",\n      \"value\": \"<integer>\"\n    }\n  ],\n  \"administrativeRole\": \"<string>\",\n  \"academicRole\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"description\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"category\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"documents\": [\n    {\n      \"fileName\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"size\": \"<long>\",\n      \"uploadedFile\": {},\n      \"remoteFile\": {\n        \"fileId\": \"<string>\",\n        \"fileState\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"storeName\": \"<string>\",\n        \"timeStamp\": \"<dateTime>\",\n        \"metadataUpdateRequired\": false\n      },\n      \"fileData\": \"<byte>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"fileName\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"size\": \"<long>\",\n      \"uploadedFile\": {},\n      \"remoteFile\": {\n        \"fileId\": \"<string>\",\n        \"fileState\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"storeName\": \"<string>\",\n        \"timeStamp\": \"<dateTime>\",\n        \"metadataUpdateRequired\": false\n      },\n      \"fileData\": \"<byte>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"responsibleUsers\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"milestoneType\": \"<string>\",\n  \"title\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"pureId\": 1665,\n  \"uuid\": \"63e5cb26-010f-527c-40fb-2f3ea8ed167f\",\n  \"createdBy\": \"string\",\n  \"createdDate\": \"1980-03-29T12:55:40.135Z\",\n  \"modifiedBy\": \"string\",\n  \"modifiedDate\": \"1976-06-18T04:58:33.302Z\",\n  \"portalUrl\": \"string\",\n  \"prettyUrlIdentifiers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"previousUuids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"version\": \"<string>\",\n  \"deadline\": \"<date>\",\n  \"completionState\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"completedDate\": \"<date>\",\n  \"award\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"application\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"project\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"ethicalReview\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"contract\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"completedBy\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"reminders\": [\n    {\n      \"timeUnit\": \"<string>\",\n      \"value\": \"<integer>\",\n      \"pureId\": 3311\n    },\n    {\n      \"timeUnit\": \"<string>\",\n      \"value\": \"<integer>\",\n      \"pureId\": 1824\n    }\n  ],\n  \"administrativeRole\": \"<string>\",\n  \"academicRole\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"description\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"category\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"documents\": [\n    {\n      \"fileName\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"pureId\": 8916,\n      \"fileId\": \"string\",\n      \"size\": \"<long>\",\n      \"url\": \"string\",\n      \"fileStoreLocations\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"uploadedFile\": {\n        \"digest\": \"string\",\n        \"digestType\": \"string\",\n        \"size\": 5672,\n        \"mimeType\": \"string\",\n        \"timeStamp\": \"2001-01-30T23:45:37.282Z\",\n        \"expires\": \"2017-02-18T05:40:23.575Z\",\n        \"key\": \"string\"\n      },\n      \"remoteFile\": {\n        \"fileId\": \"<string>\",\n        \"fileState\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"storeName\": \"<string>\",\n        \"timeStamp\": \"<dateTime>\",\n        \"metadataUpdateRequired\": false\n      },\n      \"title\": \"<string>\",\n      \"creator\": \"string\",\n      \"created\": \"1975-05-01T21:23:28.864Z\"\n    },\n    {\n      \"fileName\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"pureId\": 8192,\n      \"fileId\": \"string\",\n      \"size\": \"<long>\",\n      \"url\": \"string\",\n      \"fileStoreLocations\": {\n        \"key_0\": \"string\"\n      },\n      \"uploadedFile\": {\n        \"digest\": \"string\",\n        \"digestType\": \"string\",\n        \"size\": 1749,\n        \"mimeType\": \"string\",\n        \"timeStamp\": \"1947-07-21T04:14:48.353Z\",\n        \"expires\": \"1996-03-21T18:03:20.739Z\",\n        \"key\": \"string\"\n      },\n      \"remoteFile\": {\n        \"fileId\": \"<string>\",\n        \"fileState\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"storeName\": \"<string>\",\n        \"timeStamp\": \"<dateTime>\",\n        \"metadataUpdateRequired\": false\n      },\n      \"title\": \"<string>\",\n      \"creator\": \"string\",\n      \"created\": \"1999-02-28T15:24:54.008Z\"\n    }\n  ],\n  \"responsibleUsers\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ],\n  \"systemName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e8126040-24d5-46e2-97ec-743b5610790c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the milestone to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"milestoneType\": \"<string>\",\n  \"title\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"version\": \"<string>\",\n  \"deadline\": \"<date>\",\n  \"completionState\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"completedDate\": \"<date>\",\n  \"award\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"application\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"project\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"ethicalReview\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"contract\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"completedBy\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"reminders\": [\n    {\n      \"timeUnit\": \"<string>\",\n      \"value\": \"<integer>\"\n    },\n    {\n      \"timeUnit\": \"<string>\",\n      \"value\": \"<integer>\"\n    }\n  ],\n  \"administrativeRole\": \"<string>\",\n  \"academicRole\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"description\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"category\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"documents\": [\n    {\n      \"fileName\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"size\": \"<long>\",\n      \"uploadedFile\": {},\n      \"remoteFile\": {\n        \"fileId\": \"<string>\",\n        \"fileState\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"storeName\": \"<string>\",\n        \"timeStamp\": \"<dateTime>\",\n        \"metadataUpdateRequired\": false\n      },\n      \"fileData\": \"<byte>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"fileName\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"size\": \"<long>\",\n      \"uploadedFile\": {},\n      \"remoteFile\": {\n        \"fileId\": \"<string>\",\n        \"fileState\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"storeName\": \"<string>\",\n        \"timeStamp\": \"<dateTime>\",\n        \"metadataUpdateRequired\": false\n      },\n      \"fileData\": \"<byte>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"responsibleUsers\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7719,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e6d1ab97-887a-42d4-b944-afd9958e6dbf",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the milestone to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"milestoneType\": \"<string>\",\n  \"title\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"version\": \"<string>\",\n  \"deadline\": \"<date>\",\n  \"completionState\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"completedDate\": \"<date>\",\n  \"award\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"application\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"project\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"ethicalReview\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"contract\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"completedBy\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"reminders\": [\n    {\n      \"timeUnit\": \"<string>\",\n      \"value\": \"<integer>\"\n    },\n    {\n      \"timeUnit\": \"<string>\",\n      \"value\": \"<integer>\"\n    }\n  ],\n  \"administrativeRole\": \"<string>\",\n  \"academicRole\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"description\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"category\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"documents\": [\n    {\n      \"fileName\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"size\": \"<long>\",\n      \"uploadedFile\": {},\n      \"remoteFile\": {\n        \"fileId\": \"<string>\",\n        \"fileState\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"storeName\": \"<string>\",\n        \"timeStamp\": \"<dateTime>\",\n        \"metadataUpdateRequired\": false\n      },\n      \"fileData\": \"<byte>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"fileName\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"size\": \"<long>\",\n      \"uploadedFile\": {},\n      \"remoteFile\": {\n        \"fileId\": \"<string>\",\n        \"fileState\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"storeName\": \"<string>\",\n        \"timeStamp\": \"<dateTime>\",\n        \"metadataUpdateRequired\": false\n      },\n      \"fileData\": \"<byte>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"responsibleUsers\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7719,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f180f23-21a9-4d41-b671-8dcf3e97c36a",
+              "name": "Version conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the milestone to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"milestoneType\": \"<string>\",\n  \"title\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"version\": \"<string>\",\n  \"deadline\": \"<date>\",\n  \"completionState\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"completedDate\": \"<date>\",\n  \"award\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"application\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"project\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"ethicalReview\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"contract\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"completedBy\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"reminders\": [\n    {\n      \"timeUnit\": \"<string>\",\n      \"value\": \"<integer>\"\n    },\n    {\n      \"timeUnit\": \"<string>\",\n      \"value\": \"<integer>\"\n    }\n  ],\n  \"administrativeRole\": \"<string>\",\n  \"academicRole\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"description\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"category\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"documents\": [\n    {\n      \"fileName\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"size\": \"<long>\",\n      \"uploadedFile\": {},\n      \"remoteFile\": {\n        \"fileId\": \"<string>\",\n        \"fileState\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"storeName\": \"<string>\",\n        \"timeStamp\": \"<dateTime>\",\n        \"metadataUpdateRequired\": false\n      },\n      \"fileData\": \"<byte>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"fileName\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"size\": \"<long>\",\n      \"uploadedFile\": {},\n      \"remoteFile\": {\n        \"fileId\": \"<string>\",\n        \"fileState\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"storeName\": \"<string>\",\n        \"timeStamp\": \"<dateTime>\",\n        \"metadataUpdateRequired\": false\n      },\n      \"fileData\": \"<byte>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"responsibleUsers\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 628,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"modified\": \"1974-09-09T07:50:41.764Z\",\n  \"modifiedBy\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b963e4d3-44be-4c73-a5c2-04bb582136cc",
+          "name": "Delete milestone",
+          "request": {
+            "name": "Delete milestone",
+            "description": {
+              "content": "Delete milestone with specific UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the milestone"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/problem+json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f707368f-f135-4ede-bfd4-437838b6a6b5",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the milestone"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5dd00e2a-97cd-46a3-9875-3ea8ad5700f9",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the milestone"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7719,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a7bfe031-debd-41ea-b806-18a38b57a6dd",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the milestone"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 628,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"modified\": \"1974-09-09T07:50:41.764Z\",\n  \"modifiedBy\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c3103a06-288c-4fa9-a18a-a6efedb48e43",
+          "name": "Lock the content",
+          "request": {
+            "name": "Lock the content",
+            "description": {
+              "content": "Mark the content as external (used when content contains synchronised data). This has no effect on interactions with the content through the API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                ":uuid",
+                "actions",
+                "lock"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the content to lock"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/problem+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9fdb0655-c850-4bc5-a0c1-006f5077a0ac",
+              "name": "Content marked as locked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    ":uuid",
+                    "actions",
+                    "lock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to lock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "575127a9-0c03-427f-a3ae-2d3feb0fdd6a",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    ":uuid",
+                    "actions",
+                    "lock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to lock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7719,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c283775-b84c-44fb-b2db-4c7b84ca2589",
+              "name": "Content already locked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    ":uuid",
+                    "actions",
+                    "lock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to lock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 628,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"modified\": \"1974-09-09T07:50:41.764Z\",\n  \"modifiedBy\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0493f2ce-acee-44a4-b6df-e2231a3f16c7",
+          "name": "Unlock the content",
+          "request": {
+            "name": "Unlock the content",
+            "description": {
+              "content": "Remove the external mark on the content (used when content contains synchronised data). This has no effect on interactions with the content through the API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                ":uuid",
+                "actions",
+                "unlock"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the content to unlock"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/problem+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6001cd30-39fb-49db-a8a1-613d70f8956c",
+              "name": "Content marked as unlocked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    ":uuid",
+                    "actions",
+                    "unlock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to unlock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1ffa8d95-b940-42cc-868c-50e6489b2a54",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    ":uuid",
+                    "actions",
+                    "unlock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to unlock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7719,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf301934-5867-4319-9cfa-30084164fcb5",
+              "name": "Content already unlocked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    ":uuid",
+                    "actions",
+                    "unlock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to unlock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 628,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"modified\": \"1974-09-09T07:50:41.764Z\",\n  \"modifiedBy\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aa642d40-87ec-43a7-8f41-6e41a7e99060",
+          "name": "Lists all dependents to a milestone",
+          "request": {
+            "name": "Lists all dependents to a milestone",
+            "description": {
+              "content": "Lists all dependents to a milestone with the specified UUID. If the user does not have access to view all the dependent content, an authorization error will be thrown. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                ":uuid",
+                "dependents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "verbose",
+                  "value": "<boolean>",
+                  "description": "DEPRECATED - Parameter has no effect."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the milestone"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "823d928e-b08f-4399-8844-9b6c149927ce",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    ":uuid",
+                    "dependents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "verbose",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the milestone"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ce564853-095f-4884-a0d2-fbc7d793d407",
+          "name": "Get file from the milestone",
+          "request": {
+            "name": "Get file from the milestone",
+            "description": {
+              "content": "Get file from the milestone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "milestones",
+                ":uuid",
+                "files",
+                ":fileId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the milestone"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "fileId",
+                  "description": "(Required) File id "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5b3e6c16-f3ff-42ef-8a37-20a107f7cbe5",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "milestones",
+                    ":uuid",
+                    "files",
+                    ":fileId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the milestone"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fileId",
+                      "description": "(Required) File id "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/ws/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "baf98a4e-dad1-4920-8670-1d928698f54e",
+    "name": "Pure activity milestone API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Pure API provides a secure and complete web services API for using and managing research information data in Pure. The API enables a broad range of use-cases for interacting with research information, from anonymous Open Data scenarios to enabling the next generation Pure admin.\n\nContact Support:\n Email: pure-support@elsevier.com",
+      "type": "text/plain"
+    }
+  }
+}
