@@ -1178,6 +1178,9 @@ apis:
   - type: x-json-ld
     url: json-ld/eindhoven-university-of-technology-context.jsonld
 common:
+  - type: CapabilityMap
+    url: capabilities/eindhoven-university-of-technology-capability-edges.yml
+    name: Eindhoven University of Technology Business Capability Map
   - type: AgenticAccess
     url: agentic-access/eindhoven-university-of-technology-agentic-access.yml
   - type: VulnerabilityDisclosure

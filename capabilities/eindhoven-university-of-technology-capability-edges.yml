@@ -1,0 +1,38 @@
+slug: eindhoven-university-of-technology
+provider: Eindhoven University of Technology
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: user
+  spec_file: eindhoven-university-of-technology-user-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: PUT /users user_create Create user; POST /users/{uuid}/actions/reset-password user_resetPassword
+    Reset user password; PUT /users/{uuid}/roles user_update_roles_for_user Updates roles
+  reason: Full lifecycle of application user accounts including creation, deletion, password reset and
+    role assignment — squarely identity and access management for the Pure system rather than any research
+    or HR business function.
+- tag: contract
+  spec_file: eindhoven-university-of-technology-contract-api-openapi.yml
+  capability_id: BC-150.10
+  capability_id_l1: BC-150
+  capability_name: Contract Management
+  confidence: 0.72
+  evidence: '"Create contract", "A list of allowed contract collaborator types", schemas Contract, ContractDocument,
+    ContractExtended, ContractCurtailed, MilestoneReminder, ContractAwardAssociation'
+  reason: Full lifecycle CRUD over contract records with collaborators, documents and licenses, extensions/curtailments
+    and milestone reminders — i.e. contract lifecycle from drafting to closure (here for research awards).
+    Maps to Contract Management; confidence tempered because it is a research-administration module rather
+    than a general legal CLM suite.
