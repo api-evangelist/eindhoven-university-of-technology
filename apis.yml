@@ -1,1200 +1,271 @@
 ---
 aid: eindhoven-university-of-technology
 name: Eindhoven University of Technology
+x-type: university
+x-category: Technical University
 description: >-
-  Eindhoven University of Technology (TU/e) is a research-driven public technical
-  university in Eindhoven, Netherlands, ranked #136 in the QS World University
-  Rankings 2025. Its public, machine-readable developer footprint centers on its
-  Elsevier Pure research information system, which exposes the institutional
-  research output through an OAI-PMH metadata-harvesting interface and the Pure
-  Web Service (REST/SOAP) API. TU/e does not operate a single consolidated public
-  developer portal; programmatic access to course, identity, and library systems
-  is generally institution-internal or vendor-mediated, and numerous departmental
-  research groups publish open-source code across separate GitHub organizations.
+  Eindhoven University of Technology (TU/e) is a public technical university in Eindhoven, the
+  Netherlands, and one of the four institutions of the 4TU federation. It operates no public
+  developer portal, publishes no institution-authored API contract, and offers no self-serve API
+  keys — and this profile says so rather than padding the gap. Everything machine-readable that
+  carries the TU/e name is a deployment of somebody else's software: the TU/e Research Portal and
+  its Pure Web Service REST API are Elsevier Pure 5.35.x running at pure.tue.nl, the student
+  mobile app at osiris.tue.nl is Caci Osiris, library discovery is OCLC WorldCat, and research
+  datasets are minted through the 4TU.ResearchData Figshare consortium. What TU/e genuinely
+  operates on its own domain is narrower and real: a live, fully conformant OAI-PMH 2.0 harvesting
+  endpoint at pure.tue.nl/ws/oai serving seven metadata formats and the OpenAIRE CERIF 1.2 CRIS
+  profile, and a SAML 2.0 identity-provider entity registered in the SURFconext federation and so
+  reachable through eduGAIN. Thirty-seven OpenAPI documents previously attributed to TU/e in this
+  repository were Elsevier's Pure product contract (info.title "Pure …", contact
+  pure-support@elsevier.com, relative servers "/ws/api", shipped identically by nine other
+  universities) and have been removed; the tenant relationships they described are recorded here
+  instead. Departmental research groups publish open source across many separate GitHub
+  organizations, but the university runs no single official engineering org.
 type: Index
+x-operator-summary:
+  institution: 0
+  tenant: 3
+  vendor_removed: 38
+  note: >-
+    No surface in this repository is institution-authored. The three tenant surfaces are real
+    institutional facts — TU/e's repository, TU/e's metadata, TU/e's federation identity — running
+    on contracts TU/e did not write.
 deliveryModel:
   model: saas
   open_source: false
-  commercial: true
-  callable_host: false
-  label: Hosted service · you call their endpoint
-  confidence: medium
-  source:
-  - openapi
-  - pricing
-  generated: '2026-08-28'
-  method: derived
-accessModel:
-  pricing: free
-  onboarding: self-serve
-  trial: false
-  try_now: true
-  public: false
-  label: Free · Self-serve signup
+  commercial: false
+  callable_host: true
+  label: Vendor-hosted deployments under the institution's own domain
   confidence: high
   source:
-  - plans
-  - authentication
-  generated: '2026-07-22'
-  method: derived
+  - live probe
+  generated: '2026-08-30'
+  method: probed
+accessModel:
+  pricing: free
+  onboarding: none
+  trial: false
+  try_now: true
+  public: true
+  label: Open metadata harvesting, no signup; everything else is affiliation-gated
+  confidence: high
+  source:
+  - live probe
+  generated: '2026-08-30'
+  method: probed
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/eindhoven-university-of-technology.png
 url: https://raw.githubusercontent.com/api-evangelist/eindhoven-university-of-technology/refs/heads/main/apis.yml
 tags:
-  - Education
-  - Higher Education
   - University
-  - Research
-  - Open Data
+  - Higher Education
+  - Education
+  - Technical University
   - Netherlands
   - Europe
+  - 4TU
+  - Research Data
+  - Research Information
+  - Research Repository
+  - Identity Federation
+  - OAI-PMH
+  - Open Metadata
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-08-30'
 specificationVersion: '0.23'
 apis:
 - aid: eindhoven-university-of-technology:research-oai-pmh
   name: TU/e Research Portal OAI-PMH
+  x-operator: tenant
+  x-operator-note: >-
+    Institution-hosted, vendor-authored. The endpoint is on TU/e's own registrable domain and its
+    admin contact is pure@tue.nl, so the deployment and the metadata are TU/e's — but the software
+    is Elsevier Pure and the protocol is OAI's. Recorded as a tenant relationship, which is the
+    honest answer, rather than credited to TU/e as engineering.
   description: >-
-    OAI-PMH metadata-harvesting interface for the TU/e Research Portal, powered by Elsevier Pure. It exposes
-    research-output metadata (publications, projects, researcher profiles, datasets) for harvesting by
-    aggregators such as OpenAIRE. The endpoint is the standard Pure OAI path; bare requests returned server
-    errors during probing, consistent with Pure requiring properly formed OAI verb/metadataPrefix parameters.
+    Live OAI-PMH 2.0 harvesting interface for the TU/e Research Portal, served by Elsevier Pure at
+    TU/e's own pure.tue.nl. Verified with a real harvest, not link presence: verb=Identify returns
+    repositoryName "Pure OAI Repository", adminEmail pure@tue.nl and earliestDatestamp
+    2015-11-10; verb=ListMetadataFormats returns seven prefixes (oai_cerif_openaire, mods, nl_didl,
+    oai_dc, xmetadiss, qdc, uketd_dc); verb=ListSets returns the OpenAIRE CRIS entity sets plus
+    per-year publication sets back to 1937; and verb=ListRecords over
+    set=openaire_cris_persons returns real cerif:Person records with a resumptionToken. The
+    Identify response asserts OpenAIRE CERIF profile 1.2 compatibility. No key, no signup.
   humanURL: https://research.tue.nl/
   baseURL: https://pure.tue.nl/ws/oai
   tags:
-  - Research
   - OAI-PMH
-  - Metadata
-  - Repository
+  - Research Information
+  - Metadata Harvesting
+  - OpenAIRE
+  - CERIF
   - Open Access
   properties:
   - type: Documentation
     url: https://research.tue.nl/
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-activity-api
-  name: Eindhoven University of Technology activity API
-  description: The activity API from Eindhoven University of Technology — 39 operation(s) for activity.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags:
-  - Activity
-  tags_raw:
-  - activity
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-activity-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-application-api
-  name: Eindhoven University of Technology application API
+  - type: x-conformance
+    url: conformance/eindhoven-university-of-technology-conformance.yml
+- aid: eindhoven-university-of-technology:pure-web-service
+  name: TU/e Pure Web Service (Elsevier Pure deployment)
+  x-operator: tenant
+  x-operator-note: >-
+    The contract is Elsevier's. Pure API 5.35.3-4 declares info.title "Pure API", contact
+    pure-support@elsevier.com and a relative servers entry "/ws/api" — it carries no host at all,
+    and nine other universities in this catalog ship the identical document. The deployment at
+    pure.tue.nl is TU/e's; the specification is not, and is deliberately NOT stored in this repo.
   description: >-
-    The application API from Eindhoven University of Technology — 36 operation(s) for application.
+    TU/e's deployment of the Elsevier Pure Web Service REST API, the research-information (CRIS)
+    interface behind the TU/e Research Portal. The deployment's own generated documentation is
+    live and public at pure.tue.nl/ws/api/documentation/index.html; the API itself is api-key
+    gated and is not self-serve. No OpenAPI is registered here on purpose: the contract belongs
+    to Elsevier Pure, not to TU/e, and crediting it to the institution is exactly the
+    misattribution this profile was rebuilt to remove.
   humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
+  baseURL: https://pure.tue.nl/ws/api
   tags:
-  - Application
-  tags_raw:
-  - application
+  - Research Information
+  - CRIS
+  - Elsevier Pure
+  - Vendor Platform
   properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-application-api-openapi.yml
   - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: >-
-    eindhoven-university-of-technology:eindhoven-university-of-technology-authorcollaboration-api
-  name: Eindhoven University of Technology authorCollaboration API
+    url: https://pure.tue.nl/ws/api/documentation/index.html
+- aid: eindhoven-university-of-technology:surfconext-saml-idp
+  name: TU/e SAML Identity Provider (SURFconext / eduGAIN)
+  x-operator: tenant
+  x-operator-note: >-
+    TU/e's own federation identity, registered under TU/e's name with TU/e's organisation URL — but
+    the entityID resolves to a Microsoft Entra ID tenant and the SSO endpoint is SURFconext's
+    proxy. TU/e operates the identity; Microsoft and SURF operate the machinery.
   description: >-
-    The authorCollaboration API from Eindhoven University of Technology — 9 operation(s) for authorcollaboration.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags: []
-  tags_raw:
-  - authorCollaboration
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-authorcollaboration-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-award-api
-  name: Eindhoven University of Technology award API
-  description: The award API from Eindhoven University of Technology — 37 operation(s) for award.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
+    TU/e's SAML 2.0 identity-provider entity as published in the SURFconext federation metadata,
+    which feeds eduGAIN. The EntityDescriptor carries OrganizationName "Technische Universiteit
+    Eindhoven" / "Eindhoven University of Technology", OrganizationURL https://www.tue.nl/, and
+    entityID https://sts.windows.net/cc7df247-60ce-4a0f-9d75-704cf60efc64/. This is the one
+    surface class in the university cohort that is machine-readable by definition and almost never
+    catalogued, which is why it is registered here as a first-class entry rather than left as a
+    footnote.
+  humanURL: https://www.surf.nl/en/services/identity-access-management/surfconext
+  baseURL: https://metadata.surfconext.nl/idps-metadata.xml
   tags:
-  - award
+  - Identity Federation
+  - SAML
+  - SURFconext
+  - eduGAIN
+  - Single Sign-On
   properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-award-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: >-
-    eindhoven-university-of-technology:eindhoven-university-of-technology-classificationscheme-api
-  name: Eindhoven University of Technology classificationScheme API
-  description: >-
-    The classificationScheme API from Eindhoven University of Technology — 7 operation(s) for classificationscheme.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags: []
-  tags_raw:
-  - classificationScheme
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-classificationscheme-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-concept-api
-  name: Eindhoven University of Technology concept API
-  description: The concept API from Eindhoven University of Technology — 4 operation(s) for concept.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags:
-  - concept
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-concept-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: >-
-    eindhoven-university-of-technology:eindhoven-university-of-technology-conferenceseries-api
-  name: Eindhoven University of Technology conferenceSeries API
-  description: >-
-    The conferenceSeries API from Eindhoven University of Technology — 14 operation(s) for conferenceseries.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags: []
-  tags_raw:
-  - conferenceSeries
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-conferenceseries-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-contract-api
-  name: Eindhoven University of Technology contract API
-  description: The contract API from Eindhoven University of Technology — 26 operation(s) for contract.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags:
-  - Contract
-  tags_raw:
-  - contract
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-contract-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-course-api
-  name: Eindhoven University of Technology course API
-  description: The course API from Eindhoven University of Technology — 27 operation(s) for course.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags:
-  - course
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-course-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-dataset-api
-  name: Eindhoven University of Technology dataSet API
-  description: The dataSet API from Eindhoven University of Technology — 30 operation(s) for dataset.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags:
-  - Dataset
-  tags_raw:
-  - dataSet
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-dataset-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-education-api
-  name: Eindhoven University of Technology education API
-  description: >-
-    The education API from Eindhoven University of Technology — 14 operation(s) for education.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags:
-  - Education
-  tags_raw:
-  - education
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-education-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-equipment-api
-  name: Eindhoven University of Technology equipment API
-  description: >-
-    The equipment API from Eindhoven University of Technology — 28 operation(s) for equipment.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags:
-  - Equipment
-  tags_raw:
-  - equipment
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-equipment-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-ethicalreview-api
-  name: Eindhoven University of Technology ethicalReview API
-  description: >-
-    The ethicalReview API from Eindhoven University of Technology — 22 operation(s) for ethicalreview.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags: []
-  tags_raw:
-  - ethicalReview
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-ethicalreview-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-event-api
-  name: Eindhoven University of Technology event API
-  description: The event API from Eindhoven University of Technology — 22 operation(s) for event.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags:
-  - Event
-  tags_raw:
-  - event
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-event-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: >-
-    eindhoven-university-of-technology:eindhoven-university-of-technology-externalorganization-api
-  name: Eindhoven University of Technology externalOrganization API
-  description: >-
-    The externalOrganization API from Eindhoven University of Technology — 29 operation(s) for externalorganization.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags: []
-  tags_raw:
-  - externalOrganization
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-externalorganization-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-externalperson-api
-  name: Eindhoven University of Technology externalPerson API
-  description: >-
-    The externalPerson API from Eindhoven University of Technology — 22 operation(s) for externalperson.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags: []
-  tags_raw:
-  - externalPerson
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-externalperson-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-fingerprint-api
-  name: Eindhoven University of Technology fingerprint API
-  description: >-
-    The fingerprint API from Eindhoven University of Technology — 3 operation(s) for fingerprint.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags:
-  - fingerprint
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-fingerprint-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: >-
-    eindhoven-university-of-technology:eindhoven-university-of-technology-fundingopportunity-api
-  name: Eindhoven University of Technology fundingOpportunity API
-  description: >-
-    The fundingOpportunity API from Eindhoven University of Technology — 21 operation(s) for fundingopportunity.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags: []
-  tags_raw:
-  - fundingOpportunity
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-fundingopportunity-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-impact-api
-  name: Eindhoven University of Technology impact API
-  description: The impact API from Eindhoven University of Technology — 31 operation(s) for impact.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags:
-  - Impact
-  tags_raw:
-  - impact
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-impact-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-journal-api
-  name: Eindhoven University of Technology journal API
-  description: The journal API from Eindhoven University of Technology — 22 operation(s) for journal.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags:
-  - journal
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-journal-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: >-
-    eindhoven-university-of-technology:eindhoven-university-of-technology-keywordgroupconfiguration-api
-  name: Eindhoven University of Technology keywordGroupConfiguration API
-  description: >-
-    The keywordGroupConfiguration API from Eindhoven University of Technology — 7 operation(s) for keywordgroupconfiguration.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags: []
-  tags_raw:
-  - keywordGroupConfiguration
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-keywordgroupconfiguration-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-milestone-api
-  name: Eindhoven University of Technology milestone API
-  description: >-
-    The milestone API from Eindhoven University of Technology — 24 operation(s) for milestone.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags:
-  - milestone
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-milestone-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-organization-api
-  name: Eindhoven University of Technology organization API
-  description: >-
-    The organization API from Eindhoven University of Technology — 34 operation(s) for organization.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags:
-  - Organization
-  tags_raw:
-  - organization
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-organization-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-person-api
-  name: Eindhoven University of Technology person API
-  description: The person API from Eindhoven University of Technology — 58 operation(s) for person.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags:
-  - Persons
-  tags_raw:
-  - person
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-person-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: >-
-    eindhoven-university-of-technology:eindhoven-university-of-technology-personexpertise-api
-  name: Eindhoven University of Technology personExpertise API
-  description: >-
-    The personExpertise API from Eindhoven University of Technology — 7 operation(s) for personexpertise.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags: []
-  tags_raw:
-  - personExpertise
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-personexpertise-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-pressmedia-api
-  name: Eindhoven University of Technology pressMedia API
-  description: >-
-    The pressMedia API from Eindhoven University of Technology — 24 operation(s) for pressmedia.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags: []
-  tags_raw:
-  - pressMedia
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-pressmedia-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-prize-api
-  name: Eindhoven University of Technology prize API
-  description: The prize API from Eindhoven University of Technology — 29 operation(s) for prize.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags:
-  - prize
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-prize-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-project-api
-  name: Eindhoven University of Technology project API
-  description: The project API from Eindhoven University of Technology — 33 operation(s) for project.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags:
-  - Project
-  tags_raw:
-  - project
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-project-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-publisher-api
-  name: Eindhoven University of Technology publisher API
-  description: >-
-    The publisher API from Eindhoven University of Technology — 18 operation(s) for publisher.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags:
-  - Publishers
-  tags_raw:
-  - publisher
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-publisher-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-researchoutput-api
-  name: Eindhoven University of Technology researchOutput API
-  description: >-
-    The researchOutput API from Eindhoven University of Technology — 67 operation(s) for researchoutput.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags: []
-  tags_raw:
-  - researchOutput
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-researchoutput-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-role-api
-  name: Eindhoven University of Technology role API
-  description: The role API from Eindhoven University of Technology — 2 operation(s) for role.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags:
-  - Role
-  tags_raw:
-  - role
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-role-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-semester-api
-  name: Eindhoven University of Technology semester API
-  description: The semester API from Eindhoven University of Technology — 8 operation(s) for semester.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags:
-  - semester
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-semester-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-specialization-api
-  name: Eindhoven University of Technology specialization API
-  description: >-
-    The specialization API from Eindhoven University of Technology — 8 operation(s) for specialization.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags:
-  - specialization
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-specialization-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-studentproject-api
-  name: Eindhoven University of Technology studentProject API
-  description: >-
-    The studentProject API from Eindhoven University of Technology — 26 operation(s) for studentproject.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags: []
-  tags_raw:
-  - studentProject
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-studentproject-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-studentthesis-api
-  name: Eindhoven University of Technology studentThesis API
-  description: >-
-    The studentThesis API from Eindhoven University of Technology — 26 operation(s) for studentthesis.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags: []
-  tags_raw:
-  - studentThesis
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-studentthesis-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-thesaurus-api
-  name: Eindhoven University of Technology thesaurus API
-  description: >-
-    The thesaurus API from Eindhoven University of Technology — 5 operation(s) for thesaurus.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags:
-  - thesaurus
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-thesaurus-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
-- aid: eindhoven-university-of-technology:eindhoven-university-of-technology-user-api
-  name: Eindhoven University of Technology user API
-  description: The user API from Eindhoven University of Technology — 7 operation(s) for user.
-  humanURL: https://research.tue.nl/
-  baseURL: https://pure.tue.nl/ws/oai
-  tags:
-  - User
-  tags_raw:
-  - user
-  properties:
-  - type: OpenAPI
-    url: openapi/eindhoven-university-of-technology-user-api-openapi.yml
-  - type: Documentation
-    url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-research-output-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-person-schema.json
-  - type: x-json-schema
-    url: json-schema/eindhoven-university-of-technology-organization-schema.json
-  - type: x-json-structure
-    url: json-structure/eindhoven-university-of-technology-research-output-structure.json
-  - type: x-examples
-    url: examples/eindhoven-university-of-technology-research-outputs-list-example.json
-  - type: x-rules
-    url: rules/eindhoven-university-of-technology-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/eindhoven-university-of-technology-vocabulary.yml
-  - type: x-json-ld
-    url: json-ld/eindhoven-university-of-technology-context.jsonld
+  - type: x-conformance
+    url: conformance/eindhoven-university-of-technology-conformance.yml
+x-coverage:
+  state: none
+  reason: tenant_only
+  detail: >-
+    TU/e publishes no institution-authored API contract and operates no developer portal. Every
+    machine-readable surface found is a vendor's product running under TU/e's name: Elsevier Pure
+    (research portal, Pure Web Service, OAI-PMH), Caci Osiris (student mobile), OCLC WorldCat
+    (library discovery), Figshare via the 4TU.ResearchData consortium (datasets), and Microsoft
+    Entra ID behind SURFconext (identity). Three of those are TU/e's own deployments and are
+    recorded as tenant surfaces; the rest belong in the vendors' own repositories. The one fully
+    public, keyless, verified-by-real-request surface is the OAI-PMH endpoint. Probed and NOT
+    found, so the absence is measured rather than assumed: data.tue.nl, api.tue.nl,
+    developer.tue.nl, opendata.tue.nl, ooapi.tue.nl, api.ooapi.tue.nl, idp.tue.nl, login.tue.nl,
+    sts.tue.nl, sis.tue.nl, mytimetable.tue.nl and rooster.tue.nl all fail to resolve in DNS —
+    they are not gated, they do not exist. purefaq.tue.nl, the Pure FAQ this repo previously
+    carried as a Documentation pointer, now returns a deliberate TU/e "Off-site access blocked"
+    page: it is VPN/campus-network-only, so it is recorded as evidence here and removed as a
+    pointer. TU/e is named by SURF as a 2019 Open Onderwijs API (OOAPI) participant, but Dutch
+    OOAPI endpoints are SURFconext-gated and none is publicly discoverable. github.com/TUEIndhoven
+    resolves but holds zero public repositories; the departmental orgs (tue-datastewards,
+    tue-robotics, tue-mdse, tue-aga, TUe-ICTLab, 3DCP-TUe) are research-group code, not an
+    institutional API programme.
+  checked: '2026-08-30'
+  evidence:
+  - url: https://pure.tue.nl/ws/oai?verb=Identify
+    status: 200
+    note: OAI-PMH 2.0 live; repositoryName "Pure OAI Repository"; adminEmail pure@tue.nl; OpenAIRE CERIF 1.2.
+  - url: https://pure.tue.nl/ws/oai?verb=ListMetadataFormats
+    status: 200
+    note: Seven metadata prefixes served.
+  - url: https://pure.tue.nl/ws/oai?verb=ListRecords&metadataPrefix=oai_cerif_openaire&set=openaire_cris_persons
+    status: 200
+    note: Real records returned (110,958 bytes, cerif:Person, resumptionToken) — a harvest, not a link check.
+  - url: https://pure.tue.nl/ws/api/documentation/index.html
+    status: 200
+    note: Elsevier Pure Web Service generated documentation for TU/e's deployment; the API itself is api-key gated.
+  - url: https://metadata.surfconext.nl/idps-metadata.xml
+    status: 200
+    note: TU/e SAML 2.0 IdP EntityDescriptor present in the SURFconext federation metadata.
+  - url: https://www.tue.nl/en/
+    status: 200
+    note: Institutional website; no developer, API or docs section anywhere in navigation.
+  - url: https://www.tue.nl/llms.txt
+    status: 404
+    note: No llms.txt (soft-404 — returns the 246KB site 404 page, not an empty body).
+  - url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
+    status: 403
+    note: 'Deliberate institutional gate, not a bot block: body is TU/e''s own "Off-site access blocked — only accessible via the TU/e network or the TU/e VPN" page. Removed as a pointer.'
+  - url: https://research.tue.nl/en/organisations/
+    status: 403
+    note: Pure portal edge challenge; research.tue.nl root is 200, so the host is live.
+  - url: https://osiris.tue.nl/
+    status: 200
+    note: 'SPA shell only (2,931 bytes, title "Osiris Student Mobile"); its CSP names the vendor backend rontw.osiris-student.nl. Caci vendor product, not a TU/e API.'
+  - url: https://tue.on.worldcat.org/discovery
+    status: 200
+    note: OCLC WorldCat Discovery SPA shell — vendor library discovery, no institution-operated catalog API.
+  - url: https://data.4tu.nl/search?q=&categories=&organizations=Eindhoven%20University%20of%20Technology
+    status: 200
+    note: 4TU.ResearchData (Figshare) consortium repository; TU/e is one of four member institutions, not the operator.
+  - url: https://www.tueindhoven.ai/education/guidelines/index.html
+    status: 200
+    note: 'TU/e Framework for AI in Engineering Education; adopted by the educational board and program directors in 2024. Governance document, not an API.'
+  - url: https://www.tue.nl/.well-known/security.txt
+    status: 200
+    note: PGP-signed security.txt, Expires 2027-02-09; contact and policy both the TU/e CERT RFC 2350 document.
+  - url: https://github.com/TUEIndhoven
+    status: 200
+    note: TU/e GitHub organization exists but publishes zero public repositories.
+  - url: https://educationguide.tue.nl/
+    status: 200
+    note: Course catalog is a rendered web guide; /api and /openapi.json both 404. No public course API.
 common:
-  - type: CapabilityMap
-    url: capabilities/eindhoven-university-of-technology-capability-edges.yml
-    name: Eindhoven University of Technology Business Capability Map
-  - type: AgenticAccess
-    url: agentic-access/eindhoven-university-of-technology-agentic-access.yml
+  - type: Website
+    url: https://www.tue.nl/en/
+  - type: ResearchRepository
+    url: https://research.tue.nl/
+    name: TU/e Research Portal (Elsevier Pure) — tenant
+  - type: ResearchRepository
+    url: https://data.4tu.nl/search?q=&categories=&organizations=Eindhoven%20University%20of%20Technology
+    name: 4TU.ResearchData — TU/e datasets in the four-university Figshare consortium
+  - type: IdentityFederation
+    url: https://metadata.surfconext.nl/idps-metadata.xml
+    name: TU/e SAML 2.0 IdP entity in SURFconext / eduGAIN
+  - type: CourseCatalog
+    url: https://educationguide.tue.nl/
+    name: TU/e Education Guide (rendered catalog; no public API)
+  - type: AIPolicy
+    url: https://www.tueindhoven.ai/education/guidelines/index.html
+    name: TU/e Framework for AI in Engineering Education
+  - type: Documentation
+    url: https://pure.tue.nl/ws/api/documentation/index.html
+  - type: TermsOfService
+    url: https://www.tue.nl/en/storage/disclaimer
+  - type: PrivacyPolicy
+    url: https://www.tue.nl/en/our-university/about-the-university/support-services/library-and-information-services/privacy
+  - type: GitHub
+    url: https://github.com/TUEIndhoven
+  - type: GitHubOrganization
+    url: https://github.com/tue-datastewards
+    name: TU/e Data Stewards — research data management tooling
+  - type: LinkedIn
+    url: https://www.linkedin.com/school/eindhoven-university-of-technology/
   - type: VulnerabilityDisclosure
     url: security/eindhoven-university-of-technology-vulnerability-disclosure.yml
   - type: DomainSecurity
     url: security/eindhoven-university-of-technology-domain-security.yml
-  - type: Authentication
-    url: authentication/eindhoven-university-of-technology-authentication.yml
-  - type: Website
-    url: https://www.tue.nl/en/
-  - type: GitHub
-    url: https://github.com/TUEIndhoven
-  - type: LinkedIn
-    url: https://www.linkedin.com/school/eindhoven-university-of-technology/
+  - type: Conformance
+    url: conformance/eindhoven-university-of-technology-conformance.yml
   - type: Plans
     url: plans/eindhoven-university-of-technology-plans-pricing.yml
   - type: RateLimits
