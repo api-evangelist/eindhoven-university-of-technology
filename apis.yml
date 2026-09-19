@@ -125,6 +125,11 @@ apis:
   baseURL: https://pure.tue.nl/ws/api
   tags:
   - Research Information
+  - CRI
+  - Elsevier Pure
+  - Vendor Platform
+  tags_raw:
+  - Research Information
   - CRIS
   - Elsevier Pure
   - Vendor Platform
@@ -149,6 +154,12 @@ apis:
   humanURL: https://www.surf.nl/en/services/identity-access-management/surfconext
   baseURL: https://metadata.surfconext.nl/idps-metadata.xml
   tags:
+  - Identity Federation
+  - SAML
+  - SURFconext
+  - eduGAIN
+  - SSO
+  tags_raw:
   - Identity Federation
   - SAML
   - SURFconext
