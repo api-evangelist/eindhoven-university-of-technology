@@ -3,7 +3,7 @@ name: Eindhoven University of Technology
 description: Eindhoven University of Technology public developer/API footprint review for APIs.json cataloging.
 url: https://raw.githubusercontent.com/api-evangelist/eindhoven-university-of-technology/refs/heads/main/review.yml
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-08-30'
 reviews:
   - date: '2026-06-03'
     rating: 2
@@ -44,4 +44,73 @@ reviews:
       - url: https://github.com/TUEIndhoven
         status: 200
         note: A TU/e-related GitHub org; no single official university-wide org.
----
+  - date: '2026-08-30'
+    rating: 2
+    summary: >-
+      Re-profiled under the API Evangelist university pipeline, which settles WHO OPERATES a
+      surface before saving any contract. The June 2026 profile credited TU/e with 37 OpenAPI
+      documents. Every one of them was Elsevier's Pure product contract: info.title "Pure API" /
+      "Pure activity <Resource> API", info.contact.email pure-support@elsevier.com, and a relative
+      servers entry "/ws/api" carrying no host at all — which is precisely why a hostname-based
+      ownership check passed them through as TU/e's own. Nine other universities in this catalog
+      ship the same document. All 37, the pristine Pure source in openapi/_original/, and the 90
+      artifacts derived from them (73 collections, 3 JSON Schemas, 3 JSON Structures, 3 examples,
+      2 Spectral rulesets, vocabulary, JSON-LD context, authentication, agentic-access, capability
+      map) were removed. The tenant relationships they described were NOT deleted — they are real
+      institutional facts and are now recorded as three apis[] entries, each carrying x-operator.
+      Two genuine surfaces were verified this run that the June profile got wrong or missed. The
+      Pure OAI-PMH endpoint, recorded in June as returning 500 to a bare probe, is in fact fully
+      live and fully conformant when asked correctly: verb=Identify, ListMetadataFormats, ListSets
+      and a real ListRecords harvest all return 200 with content. And TU/e's SAML 2.0 identity
+      provider entity is published in the SURFconext federation metadata, reachable through
+      eduGAIN — a machine-readable institution-level surface the June profile never looked for.
+      Expect the Kin Score to fall. It should: the June number was Elsevier's engineering.
+    endpoints:
+      - url: https://pure.tue.nl/ws/oai?verb=Identify
+        status: 200
+        note: 'LIVE and conformant, correcting the June 500. repositoryName "Pure OAI Repository", adminEmail pure@tue.nl, earliestDatestamp 2015-11-10, OpenAIRE CERIF 1.2 compatibility asserted.'
+      - url: https://pure.tue.nl/ws/oai?verb=ListMetadataFormats
+        status: 200
+        note: 'Seven prefixes: oai_cerif_openaire, mods, nl_didl, oai_dc, xmetadiss, qdc, uketd_dc.'
+      - url: https://pure.tue.nl/ws/oai?verb=ListSets
+        status: 200
+        note: OpenAIRE CRIS entity sets plus per-year publication sets back to 1937.
+      - url: https://pure.tue.nl/ws/oai?verb=ListRecords&metadataPrefix=oai_cerif_openaire&set=openaire_cris_persons
+        status: 200
+        note: Real harvest — 110,958 bytes of cerif:Person records with a resumptionToken. Status code and payload, not link presence.
+      - url: https://pure.tue.nl/ws/api/documentation/index.html
+        status: 200
+        note: Elsevier Pure Web Service generated docs for TU/e's deployment; the API is api-key gated. Contract is Elsevier's; no OpenAPI registered here.
+      - url: https://metadata.surfconext.nl/idps-metadata.xml
+        status: 200
+        note: 'NEW FIND. TU/e SAML 2.0 IdP EntityDescriptor present; entityID https://sts.windows.net/cc7df247-60ce-4a0f-9d75-704cf60efc64/, OrganizationName "Technische Universiteit Eindhoven".'
+      - url: https://www.tueindhoven.ai/education/guidelines/index.html
+        status: 200
+        note: 'NEW FIND. TU/e Framework for AI in Engineering Education, adopted by the educational board and program directors in 2024. Recorded as an AIPolicy pointer, not scored as an API.'
+      - url: https://purefaq.tue.nl/pure/faq/index.php?action=overview
+        status: 403
+        note: 'Was a Documentation pointer in June. Body is TU/e''s own "Off-site access blocked — only accessible via the TU/e network or the TU/e VPN". A deliberate institutional gate, not a bot block. Removed as a pointer, kept as coverage evidence.'
+      - url: https://osiris.tue.nl/
+        status: 200
+        note: 'SPA shell only (2,931 bytes, "Osiris Student Mobile"); CSP names vendor backend rontw.osiris-student.nl. Caci product. 200 is not a surface.'
+      - url: https://tue.on.worldcat.org/discovery
+        status: 200
+        note: OCLC WorldCat Discovery SPA shell. Vendor library discovery; no institution-operated catalog API.
+      - url: https://data.4tu.nl/search?q=&categories=&organizations=Eindhoven%20University%20of%20Technology
+        status: 200
+        note: 4TU.ResearchData Figshare consortium; TU/e is one of four members, not the operator. DataCite DOIs are the consortium's, so datacite is NOT claimed for TU/e.
+      - url: https://www.tue.nl/.well-known/security.txt
+        status: 200
+        note: PGP-signed, Expires 2027-02-09; contact and policy both the TU/e CERT RFC 2350 document.
+      - url: https://www.tue.nl/llms.txt
+        status: 404
+        note: Soft-404 — returns the 246KB site 404 page rather than an empty body. No llms.txt.
+      - url: https://educationguide.tue.nl/
+        status: 200
+        note: Rendered course catalog. /api and /openapi.json both 404. No public course API.
+      - url: https://github.com/TUEIndhoven
+        status: 200
+        note: Org resolves but publishes ZERO public repositories. Kept as a pointer because it is live and TU/e's; noted honestly rather than counted as an engineering surface.
+      - url: https://github.com/tue-datastewards
+        status: 200
+        note: TU/e Data Stewards, 5 public repos, research data management tooling. Added as GitHubOrganization.

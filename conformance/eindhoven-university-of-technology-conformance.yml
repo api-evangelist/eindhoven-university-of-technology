@@ -1,0 +1,121 @@
+# Education-regime domain-standard conformance for Eindhoven University of Technology (TU/e).
+# Kin Score 0.12.0 `education` regime standards[]: scim, lti, oneroster, ed-fi, caliper, qti,
+# oai-pmh, shibboleth, saml, orcid, datacite, crossref.
+# REWARD-ONLY. Only standards actually observed in a live response are recorded here. Standards
+# that were probed and NOT observed are listed under `probed_not_found` so the absence is a
+# measurement rather than a silence.
+generated: '2026-08-30'
+method: searched
+probe: true
+x-method-detail: probed
+source: live probes of pure.tue.nl and metadata.surfconext.nl, 2026-08-30
+provider: Eindhoven University of Technology
+providerId: eindhoven-university-of-technology
+regime: education
+
+conformance:
+
+  - standard: oai-pmh
+    name: Open Archives Initiative Protocol for Metadata Harvesting 2.0
+    status: conformant
+    x-operator: tenant
+    operator_note: >-
+      The endpoint is on TU/e's own registrable domain (pure.tue.nl) and its administrative contact
+      is pure@tue.nl, but the software serving it is Elsevier Pure. TU/e operates the deployment and
+      owns the metadata; Elsevier wrote the software. Recorded as tenant, not institution.
+    endpoint: https://pure.tue.nl/ws/oai
+    evidence:
+      - what: protocolVersion 2.0 declared in the Identify response
+        url: https://pure.tue.nl/ws/oai?verb=Identify
+        status: 200
+        location: /OAI-PMH/Identify/protocolVersion
+        observed: '2.0'
+      - what: repository identity and admin contact
+        url: https://pure.tue.nl/ws/oai?verb=Identify
+        status: 200
+        location: /OAI-PMH/Identify/repositoryName, /OAI-PMH/Identify/adminEmail
+        observed: 'Pure OAI Repository; pure@tue.nl; earliestDatestamp 2015-11-10T10:11:00Z'
+      - what: seven metadata formats served
+        url: https://pure.tue.nl/ws/oai?verb=ListMetadataFormats
+        status: 200
+        location: /OAI-PMH/ListMetadataFormats/metadataFormat/metadataPrefix
+        observed: 'oai_cerif_openaire, mods, nl_didl, oai_dc, xmetadiss, qdc, uketd_dc'
+      - what: OpenAIRE CERIF 1.2 CRIS profile compatibility asserted
+        url: https://pure.tue.nl/ws/oai?verb=Identify
+        status: 200
+        location: /OAI-PMH/Identify/description/Service/Compatibility
+        observed: 'https://www.openaire.eu/cerif-profile/vocab/OpenAIRE_Service_Compatibility#1.2'
+      - what: harvestable sets, including the OpenAIRE CRIS entity sets
+        url: https://pure.tue.nl/ws/oai?verb=ListSets
+        status: 200
+        location: /OAI-PMH/ListSets/set/setSpec
+        observed: 'openaire_cris_publications, openaire_cris_patents, openaire_cris_persons, openaire_cris_orgunits, openaire_cris_events, openaire_cris_equipments, openaire_cris_products'
+      - what: records actually returned for a real harvest request (not link presence)
+        url: https://pure.tue.nl/ws/oai?verb=ListRecords&metadataPrefix=oai_cerif_openaire&set=openaire_cris_persons
+        status: 200
+        location: /OAI-PMH/ListRecords/record
+        observed: '110,958 bytes of cerif:Person records with a resumptionToken; identifiers of the form oai:pure.tue.nl:openaire_cris_persons/<uuid>'
+
+  - standard: saml
+    name: SAML 2.0 identity provider entity, published in the SURFconext federation
+    status: conformant
+    x-operator: tenant
+    operator_note: >-
+      The federation entity is TU/e's own and is registered under TU/e's name, but the SAML entityID
+      resolves to a Microsoft Entra ID tenant and the SSO endpoint is SURFconext's proxy. TU/e
+      operates the identity, Microsoft and SURF operate the machinery. Recorded as tenant.
+    evidence:
+      - what: TU/e's SAML 2.0 IdP EntityDescriptor in the SURFconext federation metadata
+        url: https://metadata.surfconext.nl/idps-metadata.xml
+        status: 200
+        location: 'md:EntityDescriptor[md:Organization/md:OrganizationName="Technische Universiteit Eindhoven"]'
+        observed: 'entityID https://sts.windows.net/cc7df247-60ce-4a0f-9d75-704cf60efc64/ ; OrganizationName (nl) "Technische Universiteit Eindhoven", (en) "Eindhoven University of Technology" ; OrganizationURL https://www.tue.nl/'
+      - what: SingleSignOnService location for that entity
+        url: https://metadata.surfconext.nl/idps-metadata.xml
+        status: 200
+        location: md:IDPSSODescriptor/md:SingleSignOnService/@Location
+        observed: 'https://engine.surfconext.nl/authentication/idp/single-sign-on/key:20230503/2506dc7f252effea5b92cacdc9ca77ac'
+      - what: the federation's own SAML metadata service is live
+        url: https://engine.surfconext.nl/authentication/idp/metadata
+        status: 200
+        location: response body
+        observed: '8,322 bytes of SAML 2.0 metadata'
+
+probed_not_found:
+  - standard: orcid
+    why: >-
+      Probed the OpenAIRE CERIF person records served over TU/e's OAI-PMH endpoint. The person
+      records carry cerif:PersonName, cerif:Affiliation and cerif:ScopusAuthorID — no ORCID
+      identifier appeared in the returned records. Not claimed.
+    url: https://pure.tue.nl/ws/oai?verb=ListRecords&metadataPrefix=oai_cerif_openaire&set=openaire_cris_persons
+    status: 200
+  - standard: shibboleth
+    why: >-
+      No Shibboleth IdP found. idp.tue.nl, login.tue.nl and sts.tue.nl do not resolve in DNS, and
+      the federation entry resolves to Microsoft Entra ID rather than Shibboleth software. `saml` is
+      recorded above; `shibboleth` is not, because the software is not Shibboleth.
+    url: https://metadata.surfconext.nl/idps-metadata.xml
+    status: 200
+  - standard: lti
+    why: No public LTI platform or tool registration surface was discoverable. Learning-platform integration at TU/e is behind institutional SSO.
+    url: https://www.tue.nl/en/
+    status: 200
+  - standard: ooapi
+    why: >-
+      NOT an education-regime standard in Kin Score 0.12.0, recorded here as a lead only. TU/e is
+      named in SURF's 2019 Incentive Scheme for Exchanging Data on Educational Offers as an OOAPI
+      (Open Onderwijs API / OEAPI) participant, but no public OOAPI endpoint was found —
+      ooapi.tue.nl and api.ooapi.tue.nl do not resolve in DNS. Dutch OOAPI endpoints are normally
+      SURFconext-gated, so absence of a public endpoint is expected, not evidence of absence.
+    url: https://www.surf.nl/en/open-education-api
+    status: 200
+  - standard: datacite
+    why: >-
+      TU/e research datasets are minted with DataCite DOIs through 4TU.ResearchData, but that is the
+      4TU consortium's Figshare deployment, not a TU/e-operated contract. Not claimed for TU/e.
+    url: https://data.4tu.nl/
+    status: 200
+
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

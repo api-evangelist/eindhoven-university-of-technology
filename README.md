@@ -64,23 +64,61 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Eindhoven University of Technology (TU/e) is a research-driven public technical university in Eindhoven, Netherlands, ranked #136 in the QS World University Rankings 2025. This repository catalogs TU/e's public, machine-readable developer/API footprint as an [APIs.json](https://apisjson.org) provider profile. The confirmed public surface centers on the Elsevier Pure research information system (OAI-PMH harvesting + Pure Web Service); TU/e does not operate a single consolidated public developer portal.
+Eindhoven University of Technology (TU/e) is a public technical university in Eindhoven, the Netherlands, and one of the four institutions of the 4TU federation. This repository catalogs TU/e's public, machine-readable footprint as an [APIs.json](https://apisjson.org) provider profile.
+
+**Re-profiled 2026-08-30 under the API Evangelist university pipeline, which puts operator attribution ahead of artifact volume.** A university is a federation of buyers, not a producer. TU/e publishes no institution-authored API contract and operates no developer portal. Every machine-readable surface carrying the TU/e name is a vendor's product running under the institution's name — and this profile now says so.
 
 - APIs.json: https://raw.githubusercontent.com/api-evangelist/eindhoven-university-of-technology/refs/heads/main/apis.yml
 - Run with Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=eindhoven-university-of-technology-api-evangelist&utm_content=repo
 
 ## Type
 
-- Index / Consumer / 3rd-Party
+- University / Technical University — Index / Consumer / 3rd-Party
 
 ## Tags
 
-Education, Higher Education, University, Research, Open Data, Netherlands, Europe
+University, Higher Education, Education, Technical University, Netherlands, Europe, 4TU, Research Data, Research Information, Research Repository, Identity Federation, OAI-PMH, Open Metadata
 
-## APIs
+## Surfaces, by who actually operates them
 
-- **TU/e Research Portal OAI-PMH** — OAI-PMH metadata-harvesting interface for the Pure-powered research portal. Docs: https://research.tue.nl/ (endpoint: https://pure.tue.nl/ws/oai)
-- **TU/e Pure Web Service (Research API)** — Elsevier Pure REST/SOAP web service backing the research portal; generally API-key gated. Docs: https://purefaq.tue.nl/pure/faq/index.php?action=overview
+Every entry carries an `x-operator`. `institution` means the contract is theirs. `tenant` means the deployment is theirs and the contract is somebody else's. `vendor` means neither, and it is not listed here at all.
+
+| Surface | Operator | What it actually is |
+|---|---|---|
+| [TU/e Research Portal OAI-PMH](https://pure.tue.nl/ws/oai) | `tenant` | Live, keyless OAI-PMH 2.0 on TU/e's own domain, served by Elsevier Pure. Seven metadata formats, OpenAIRE CERIF 1.2, real records returned. The one genuinely open surface. |
+| [TU/e Pure Web Service](https://pure.tue.nl/ws/api/documentation/index.html) | `tenant` | TU/e's deployment of Elsevier Pure 5.35.3-4. API-key gated. The OpenAPI is Elsevier's and is deliberately not stored here. |
+| [TU/e SAML IdP in SURFconext / eduGAIN](https://metadata.surfconext.nl/idps-metadata.xml) | `tenant` | TU/e's federation identity, entityID resolving to a Microsoft Entra ID tenant, SSO proxied by SURFconext. |
+
+## What was removed, and why
+
+Thirty-eight OpenAPI documents and ninety derived artifacts were removed from this repository on 2026-08-30. They were **Elsevier's Pure product contract**, not TU/e's:
+
+- `info.title` read `Pure API` / `Pure activity <Resource> API`
+- `info.contact.email` was `pure-support@elsevier.com`
+- `servers` was the relative `/ws/api` — no host at all, so a hostname-based ownership check was blind to it
+- nine other universities in this catalog shipped the byte-equivalent document
+
+One vendor contract split by tag into thirty-seven files is thirty-seven times the apparent footprint for one thing TU/e did not write. Removed with it: 73 Postman/OpenCollection files, 3 JSON Schemas, 3 JSON Structures, 3 examples, 2 Spectral rulesets, a vocabulary, a JSON-LD context, an authentication profile, an agentic-access profile and a capability map — every one of them derived from that spec and inheriting its provenance.
+
+**The tenant relationships were not deleted.** They are real institutional facts and they are recorded above. Removing a misattribution is not the same as erasing a relationship.
+
+## Domain-standard conformance (Kin Score `education` regime)
+
+Probed live, recorded with evidence, reward-only: [conformance/eindhoven-university-of-technology-conformance.yml](conformance/eindhoven-university-of-technology-conformance.yml)
+
+- **oai-pmh** — conformant. Verified by real harvest, not link presence.
+- **saml** — conformant. TU/e EntityDescriptor present in the SURFconext federation metadata.
+- Probed and **not** found, so recorded as measured absences rather than silence: `orcid` (CERIF person records carry ScopusAuthorID, no ORCID), `shibboleth` (the IdP is Entra ID, not Shibboleth), `lti`, `datacite` (4TU consortium's, not TU/e's), and OOAPI (TU/e is a named SURF participant but no public endpoint exists).
+
+## Measured absences
+
+These were probed and do not resolve in DNS — they are not gated, they do not exist: `data.tue.nl`, `api.tue.nl`, `developer.tue.nl`, `opendata.tue.nl`, `ooapi.tue.nl`, `api.ooapi.tue.nl`, `idp.tue.nl`, `login.tue.nl`, `sts.tue.nl`, `sis.tue.nl`, `mytimetable.tue.nl`, `rooster.tue.nl`.
+
+- `purefaq.tue.nl` returns TU/e's own **"Off-site access blocked"** page — VPN/campus-only. It was a Documentation pointer in the June 2026 profile; it is now recorded as coverage evidence and removed as a pointer, because a pointer nobody outside the campus can read is not a pointer.
+- `osiris.tue.nl` is a Caci Osiris SPA shell; its own CSP names the vendor backend `rontw.osiris-student.nl`.
+- `tue.on.worldcat.org` is an OCLC WorldCat Discovery SPA shell.
+- `github.com/TUEIndhoven` resolves but holds **zero public repositories**. Departmental research-group orgs exist (`tue-datastewards`, `tue-robotics`, `tue-mdse`, `tue-aga`, `TUe-ICTLab`, `3DCP-TUe`) but there is no institutional API programme behind them.
+- The "Eindhoven Open Data" Opendatasoft portal belongs to the **municipality** of Eindhoven, not the university, and is excluded.
 
 ## Plans / Rate Limits / FinOps
 
@@ -91,22 +129,28 @@ Education, Higher Education, University, Research, Open Data, Netherlands, Europ
 ## Timestamps
 
 - Created: 2026-06-03
-- Modified: 2026-06-03
+- Modified: 2026-08-30
 
 ## Common Properties
 
 - Website: https://www.tue.nl/en/
+- Research Repository: https://research.tue.nl/ (Elsevier Pure, tenant)
+- Research Repository: https://data.4tu.nl/ (4TU.ResearchData Figshare consortium)
+- Identity Federation: https://metadata.surfconext.nl/idps-metadata.xml
+- Course Catalog: https://educationguide.tue.nl/ (rendered guide; no public API)
+- AI Policy: https://www.tueindhoven.ai/education/guidelines/index.html
+- Terms of Service: https://www.tue.nl/en/storage/disclaimer
+- Privacy Policy: https://www.tue.nl/en/our-university/about-the-university/support-services/library-and-information-services/privacy
 - GitHub: https://github.com/TUEIndhoven
+- GitHub Organization: https://github.com/tue-datastewards
 - LinkedIn: https://www.linkedin.com/school/eindhoven-university-of-technology/
 - Review: [review.yml](review.yml)
 
 ## Notes
 
-- All entries reflect what could be verified publicly as of 2026-06-03; no endpoints were fabricated.
-- The Pure OAI-PMH and Pure Web Service paths resolve but returned server errors (500/999) to bare unauthenticated probes — consistent with Pure requiring well-formed OAI verbs/metadataPrefix or API-key authentication, not with the services being broken.
-- No single consolidated public TU/e developer portal was found; course, identity (SSO), and library systems are institution-internal or vendor-mediated.
-- Many departmental research-group GitHub organizations exist (e.g., tue-robotics, TUE-EE-ES, tueimage), but there is no single official university-wide GitHub org.
-- The "Eindhoven Open Data" (opendatasoft) portal belongs to the municipality of Eindhoven, not the university, and was therefore excluded.
+- Every URL in this profile was probed on 2026-08-30 and its status code recorded in `apis.yml` under `x-coverage.evidence`. Status codes, not link presence.
+- No endpoints were fabricated. A university that publishes nothing institution-authored, and says so, is a correct profile — not a failed one.
+- A correction that lowers this repository's Kin Score is the pipeline working. The June 2026 score was earned by Elsevier's engineering.
 
 ## Maintainers
 
