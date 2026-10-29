@@ -1,4 +1,4 @@
-# Eindhoven University of Technology (eindhoven-university-of-technology)
+# Eindhoven University of Technology
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,94 +64,114 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Eindhoven University of Technology (TU/e) is a public technical university in Eindhoven, the Netherlands, and one of the four institutions of the 4TU federation. This repository catalogs TU/e's public, machine-readable footprint as an [APIs.json](https://apisjson.org) provider profile.
+Eindhoven University of Technology (TU/e) is a public technical university in Eindhoven, the Netherlands, and one of the four institutions of the 4TU federation. It operates no public developer portal, publishes no institution-authored API contract, and offers no self-serve API keys — and this profile says so rather than padding the gap. Everything machine-readable that carries the TU/e name is a deployment of somebody else's software: the TU/e Research Portal and its Pure Web Service REST API are Elsevier Pure 5.35.x running at pure.tue.nl, the student mobile app at osiris.tue.nl is Caci Osiris, library discovery is OCLC WorldCat, and research datasets are minted through the 4TU.ResearchData Figshare consortium. What TU/e genuinely operates on its own domain is narrower and real: a live, fully conformant OAI-PMH 2.0 harvesting endpoint at pure.tue.nl/ws/oai serving seven metadata formats and the OpenAIRE CERIF 1.2 CRIS profile, and a SAML 2.0 identity-provider entity registered in the SURFconext federation and so reachable through eduGAIN. Thirty-seven OpenAPI documents previously attributed to TU/e in this repository were Elsevier's Pure product contract (info.title "Pure …", contact pure-support@elsevier.com, relative servers "/ws/api", shipped identically by nine other universities) and have been removed; the tenant relationships they described are recorded here instead. Departmental research groups publish open source across many separate GitHub organizations, but the university runs no single official engineering org.
 
-**Re-profiled 2026-08-30 under the API Evangelist university pipeline, which puts operator attribution ahead of artifact volume.** A university is a federation of buyers, not a producer. TU/e publishes no institution-authored API contract and operates no developer portal. Every machine-readable surface carrying the TU/e name is a vendor's product running under the institution's name — and this profile now says so.
+**Areas:** University · Higher Education · Education · Technical University · Netherlands · Europe · 4TU · Research Data · Research Information · Research Repository · Identity Federation · OAI-PMH
 
-- APIs.json: https://raw.githubusercontent.com/api-evangelist/eindhoven-university-of-technology/refs/heads/main/apis.yml
-- Run with Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=eindhoven-university-of-technology-api-evangelist&utm_content=repo
+## Eindhoven University of Technology on APIs.io
 
-## Type
+Everything profiled for Eindhoven University of Technology is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/eindhoven-university-of-technology/](https://apis.io/providers/eindhoven-university-of-technology/)** — or go straight to one of the APIs or properties below.
 
-- University / Technical University — Index / Consumer / 3rd-Party
+### APIs (3)
 
-## Tags
+- [TU/e Research Portal OAI-PMH](https://apis.io/apis/eindhoven-university-of-technology/research-oai-pmh/) — Live OAI-PMH 2.0 harvesting interface for the TU/e Research Portal, served by Elsevier Pure at TU/e's own pure.tue.nl. Verified with a real harvest, not…
+- [TU/e Pure Web Service (Elsevier Pure deployment)](https://apis.io/apis/eindhoven-university-of-technology/pure-web-service/) — TU/e's deployment of the Elsevier Pure Web Service REST API, the research-information (CRIS) interface behind the TU/e Research Portal. The deployment's own…
+- [TU/e SAML Identity Provider (SURFconext / eduGAIN)](https://apis.io/apis/eindhoven-university-of-technology/surfconext-saml-idp/) — TU/e's SAML 2.0 identity-provider entity as published in the SURFconext federation metadata, which feeds eduGAIN. The EntityDescriptor carries…
 
-University, Higher Education, Education, Technical University, Netherlands, Europe, 4TU, Research Data, Research Information, Research Repository, Identity Federation, OAI-PMH, Open Metadata
+### Published properties
 
-## Surfaces, by who actually operates them
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Every entry carries an `x-operator`. `institution` means the contract is theirs. `tenant` means the deployment is theirs and the contract is somebody else's. `vendor` means neither, and it is not listed here at all.
+#### Vocabulary (1)
 
-| Surface | Operator | What it actually is |
-|---|---|---|
-| [TU/e Research Portal OAI-PMH](https://pure.tue.nl/ws/oai) | `tenant` | Live, keyless OAI-PMH 2.0 on TU/e's own domain, served by Elsevier Pure. Seven metadata formats, OpenAIRE CERIF 1.2, real records returned. The one genuinely open surface. |
-| [TU/e Pure Web Service](https://pure.tue.nl/ws/api/documentation/index.html) | `tenant` | TU/e's deployment of Elsevier Pure 5.35.3-4. API-key gated. The OpenAPI is Elsevier's and is deliberately not stored here. |
-| [TU/e SAML IdP in SURFconext / eduGAIN](https://metadata.surfconext.nl/idps-metadata.xml) | `tenant` | TU/e's federation identity, entityID resolving to a Microsoft Entra ID tenant, SSO proxied by SURFconext. |
+The provider's domain terms, defined.
 
-## What was removed, and why
+- [TU/e Pure Web Service Vocabulary](https://apis.io/vocabularies/eindhoven-university-of-technology/eindhoven-university-of-technology-vocabulary/)
 
-Thirty-eight OpenAPI documents and ninety derived artifacts were removed from this repository on 2026-08-30. They were **Elsevier's Pure product contract**, not TU/e's:
+#### Security (2)
 
-- `info.title` read `Pure API` / `Pure activity <Resource> API`
-- `info.contact.email` was `pure-support@elsevier.com`
-- `servers` was the relative `/ws/api` — no host at all, so a hostname-based ownership check was blind to it
-- nine other universities in this catalog shipped the byte-equivalent document
+Authentication, trust centre, and vulnerability disclosure.
 
-One vendor contract split by tag into thirty-seven files is thirty-seven times the apparent footprint for one thing TU/e did not write. Removed with it: 73 Postman/OpenCollection files, 3 JSON Schemas, 3 JSON Structures, 3 examples, 2 Spectral rulesets, a vocabulary, a JSON-LD context, an authentication profile, an agentic-access profile and a capability map — every one of them derived from that spec and inheriting its provenance.
+- [Eindhoven University Of Technology Domain Security](https://apis.io/security/eindhoven-university-of-technology/eindhoven-university-of-technology-domain-security/)
+- [Eindhoven University Of Technology Vulnerability Disclosure](https://apis.io/security/eindhoven-university-of-technology/eindhoven-university-of-technology-vulnerability-disclosure/)
 
-**The tenant relationships were not deleted.** They are real institutional facts and they are recorded above. Removing a misattribution is not the same as erasing a relationship.
+#### Plans and pricing (1)
 
-## Domain-standard conformance (Kin Score `education` regime)
+Published plans, tiers and prices.
 
-Probed live, recorded with evidence, reward-only: [conformance/eindhoven-university-of-technology-conformance.yml](conformance/eindhoven-university-of-technology-conformance.yml)
+- [Eindhoven University Of Technology Plans Pricing](https://apis.io/plans/eindhoven-university-of-technology/eindhoven-university-of-technology-plans-pricing/)
 
-- **oai-pmh** — conformant. Verified by real harvest, not link presence.
-- **saml** — conformant. TU/e EntityDescriptor present in the SURFconext federation metadata.
-- Probed and **not** found, so recorded as measured absences rather than silence: `orcid` (CERIF person records carry ScopusAuthorID, no ORCID), `shibboleth` (the IdP is Entra ID, not Shibboleth), `lti`, `datacite` (4TU consortium's, not TU/e's), and OOAPI (TU/e is a named SURF participant but no public endpoint exists).
+#### Rate limits (1)
 
-## Measured absences
+Published request limits.
 
-These were probed and do not resolve in DNS — they are not gated, they do not exist: `data.tue.nl`, `api.tue.nl`, `developer.tue.nl`, `opendata.tue.nl`, `ooapi.tue.nl`, `api.ooapi.tue.nl`, `idp.tue.nl`, `login.tue.nl`, `sts.tue.nl`, `sis.tue.nl`, `mytimetable.tue.nl`, `rooster.tue.nl`.
+- [Eindhoven University Of Technology Rate Limits](https://apis.io/rate-limits/eindhoven-university-of-technology/eindhoven-university-of-technology-rate-limits/)
 
-- `purefaq.tue.nl` returns TU/e's own **"Off-site access blocked"** page — VPN/campus-only. It was a Documentation pointer in the June 2026 profile; it is now recorded as coverage evidence and removed as a pointer, because a pointer nobody outside the campus can read is not a pointer.
-- `osiris.tue.nl` is a Caci Osiris SPA shell; its own CSP names the vendor backend `rontw.osiris-student.nl`.
-- `tue.on.worldcat.org` is an OCLC WorldCat Discovery SPA shell.
-- `github.com/TUEIndhoven` resolves but holds **zero public repositories**. Departmental research-group orgs exist (`tue-datastewards`, `tue-robotics`, `tue-mdse`, `tue-aga`, `TUe-ICTLab`, `3DCP-TUe`) but there is no institutional API programme behind them.
-- The "Eindhoven Open Data" Opendatasoft portal belongs to the **municipality** of Eindhoven, not the university, and is excluded.
+#### FinOps (1)
 
-## Plans / Rate Limits / FinOps
+What the API costs to run, by operation.
 
-- Plans: [plans/eindhoven-university-of-technology-plans-pricing.yml](plans/eindhoven-university-of-technology-plans-pricing.yml)
-- Rate Limits: [rate-limits/eindhoven-university-of-technology-rate-limits.yml](rate-limits/eindhoven-university-of-technology-rate-limits.yml)
-- FinOps: [finops/eindhoven-university-of-technology-finops.yml](finops/eindhoven-university-of-technology-finops.yml)
+- [Eindhoven University Of Technology Finops](https://apis.io/finops/eindhoven-university-of-technology/eindhoven-university-of-technology-finops/)
 
-## Timestamps
+## Where to find this API
 
-- Created: 2026-06-03
-- Modified: 2026-08-30
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-## Common Properties
+- [Website](https://www.tue.nl/en/)
+- [Documentation](https://pure.tue.nl/ws/api/documentation/index.html)
+- [Terms of service](https://www.tue.nl/en/storage/disclaimer)
+- [Privacy policy](https://www.tue.nl/en/our-university/about-the-university/support-services/library-and-information-services/privacy)
+- [GitHub](https://github.com/tue-datastewards)
 
-- Website: https://www.tue.nl/en/
-- Research Repository: https://research.tue.nl/ (Elsevier Pure, tenant)
-- Research Repository: https://data.4tu.nl/ (4TU.ResearchData Figshare consortium)
-- Identity Federation: https://metadata.surfconext.nl/idps-metadata.xml
-- Course Catalog: https://educationguide.tue.nl/ (rendered guide; no public API)
-- AI Policy: https://www.tueindhoven.ai/education/guidelines/index.html
-- Terms of Service: https://www.tue.nl/en/storage/disclaimer
-- Privacy Policy: https://www.tue.nl/en/our-university/about-the-university/support-services/library-and-information-services/privacy
-- GitHub: https://github.com/TUEIndhoven
-- GitHub Organization: https://github.com/tue-datastewards
-- LinkedIn: https://www.linkedin.com/school/eindhoven-university-of-technology/
-- Review: [review.yml](review.yml)
+## API Evangelist rating
 
-## Notes
+**Kin Score 16.7** — emerging · rubric 0.24.0 · scored 2026-10-17
 
-- Every URL in this profile was probed on 2026-08-30 and its status code recorded in `apis.yml` under `x-coverage.evidence`. Status codes, not link presence.
-- No endpoints were fabricated. A university that publishes nothing institution-authored, and says so, is a correct profile — not a failed one.
-- A correction that lowers this repository's Kin Score is the pipeline working. The June 2026 score was earned by Elsevier's engineering.
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 1.9 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 9.5 |
+| Access clarity | 26.3 |
 
-## Maintainers
+**Agent readiness 0.6** — human-only
 
-- Kin Lane — kin@apievangelist.com
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 24.5** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/eindhoven-university-of-technology/](https://apis.io/providers/eindhoven-university-of-technology/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Eindhoven University of Technology: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/eindhoven-university-of-technology/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
